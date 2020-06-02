@@ -1,0 +1,93 @@
+.main-header {
+    color: #fff;
+    border-bottom: 1px solid $third-color;
+    font-family: $nav-font;
+
+    .search-btn {
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 0 5px 5px 0;
+        
+        &:hover {
+            background-color: #fff;
+            color: $second-color;
+        }
+    }
+}
+
+.navbar-btn {
+    border: none;
+    background-color: none;
+    cursor: pointer;
+
+    svg {
+        color: #fff;
+    }
+}
+
+.search input {
+    border-radius: 5px 0 0 5px;
+}
+
+.search {
+    display: none;
+}
+
+.navbar {
+    display: flex;
+    justify-self: space-between;
+    color: $text-color;
+    padding: 1em;
+
+    svg {
+        margin: 0 .5em 0 0;
+    }
+}  
+
+.nav-links {
+    display: none;
+}
+
+.logo a {
+    font-family: $logo-font;
+    color: #fff;
+    font-size: 1.7em;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .search {
+        display: flex;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+        width: 100vw;
+        
+        .navbar-btn,
+        .search-mob-btn {
+            display: none;
+        }
+
+    }
+
+    .nav-links {
+        display: flex;
+
+        &:first-child {
+            margin: 0 1em;
+        }
+        
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            
+            a {
+                color: #fff;
+                margin: 0 1em 0 0;
+            }
+        }
+    }
+}

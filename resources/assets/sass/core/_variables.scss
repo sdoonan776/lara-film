@@ -1,0 +1,38 @@
+//
+// Imports
+// --------------------------------------------------------------------------
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+
+// ==========================================================================
+// Colors
+// ==========================================================================
+
+$first-color: #fff;
+$second-color: #2556E8;
+$third-color: #112769;
+$fourth-color: #1D43B5;
+$text-color: #000;
+
+// ==========================================================================
+// Fonts
+// ==========================================================================
+
+$logo-font: 'Bungee Inline', cursive;
+$main-font: Fredoka One, cursive;
+$nav-font: Source Sans Pro, sans-serif;
+
+// ==========================================================================
+// Misc
+// ==========================================================================
+
+$font-size-base: .8em;
+$line-height-base: 1.6em;
+$main-border: 1px solid rgba(0,0,0,0.1) ;
+$box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+$base-transition: 0.3s ease;
+$heading-font-weight: 500;

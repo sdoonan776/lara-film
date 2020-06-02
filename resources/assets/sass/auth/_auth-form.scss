@@ -1,0 +1,72 @@
+.login-section {
+
+    h5 {
+        margin: 1em 0;
+    }
+
+    text-align: left;
+    margin: 1em 0;
+}
+
+.register-section {
+
+    h5 {
+        margin: 1em 0;
+    }
+
+    text-align: left;
+    margin: 1em 0;
+}
+
+.auth-form {
+    text-align: left;
+
+    .form-group {
+        margin: 1em 0;
+
+        input {
+            padding: 2em 1em;
+        }
+
+        button {
+            padding: 1em 1em;
+        }
+
+        label {
+            text-align: left;
+        }
+    }
+}
+
+.auth-btn {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #fff;
+    background-color: $fourth-color;
+
+    &:hover {
+        background-color: $third-color;
+        color: #fff;
+    }
+}
+#close-btn {
+   cursor: pointer;
+}
+
+// @media only screen and (min-width: 768px) {
+//     .auth-wrapper {
+//         display: grid;
+//         grid-template-columns: 1fr 1fr;
+//         grid-gap: 1em;
+//         justify-content: space-between;
+//         vertical-align: middle;
+
+//         .login-section {
+//             grid-column: 1 / 2;
+//         }
+
+//         .register-section {
+//             grid-column: 2 / 3;
+//         }
+//     }
+// }

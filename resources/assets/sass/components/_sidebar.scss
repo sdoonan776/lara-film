@@ -1,0 +1,46 @@
+.sidenav {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 999; 
+    top: 0; 
+    right: 0;
+    background-color: $second-color; 
+    box-shadow: $box-shadow;
+    overflow-x: hidden; 
+    transition: 0.5s; 
+
+    li {
+        text-align: center;
+        line-height: 6em;
+        border-top: 1px solid rgba(0,0,0,0.3);
+        border-bottom: 1px solid rgba(0,0,0,0.3);
+    }
+
+    a  {
+        padding: 2.4em 6.2em 2.4em 6.2em;
+        font-size: 1rem;
+        color: #000;
+        transition: 0.3s;
+        font-family: $main-font;
+        text-transform: uppercase; 
+        transition: $base-transition;
+        &:hover {
+        background-color: $first-color;
+        color: $second-color;
+        }
+    }
+
+    .close-btn {
+        cursor: pointer;
+        top: 0;
+        left: -3em;
+        width: 1em;
+        margin: 2.3em 0 2.3em 0;
+        text-align: left;  
+        transition: $base-transition;
+        &:hover {
+        transform: rotate(90deg);
+        }
+    }
+}
