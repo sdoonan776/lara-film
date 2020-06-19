@@ -7,17 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lara Film | @yield('title')</title>
     <link rel="shortcut icon" type="favicon" href="{{ asset('favicon.ico') }}">
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
     <header class="main-header">
         @include('partials.header')
     </header>
 
-    <nav>
+    {{-- <nav>
         @include('partials.sidebar')
-    </nav>
+    </nav> --}}
 
     <main class="content">
         @yield('content')

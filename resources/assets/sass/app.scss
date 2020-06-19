@@ -1,2 +1,130 @@
-@import "~bootstrap/scss/bootstrap";
-@import "custom";
+// @import "~bootstrap/scss/bootstrap";
+
+@import 'core/variables';
+@import 'core/reset';
+@import 'core/mixins';
+@import 'core/base';
+
+@import 'grids/main';
+
+@import 'components/header';
+@import 'components/footer';
+@import 'components/sidebar';
+@import 'components/search';
+@import 'components/slider';
+
+// Header 
+
+.nav-wrap {
+    display: flex;
+    justify-content: between;
+}
+
+.nav-collapse {
+    display: flex;
+    justify-content: between;
+}
+
+// Home page
+
+.movie-image-container {
+    margin: 0 auto;
+    text-align: center;
+    padding: 1em;
+    max-width: 185px;
+
+    .movie-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 1em;
+        text-align: left;
+
+        .user-rating {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            // justify-content: space-between;
+
+            svg {
+                margin: 0 .5em 0 0;
+            }
+        }
+    }
+
+}
+
+// film index
+
+.movie-index-content {
+    margin: 1em 0;
+    color: #fff;
+
+    table {
+        color: #fff;
+        margin: 2em 0;
+        text-align: left;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    
+}
+
+
+// auth form
+
+.login-section {
+
+    h5 {
+        margin: 1em 0;
+    }
+
+    text-align: left;
+    margin: 1em 0;
+}
+
+.register-section {
+
+    h5 {
+        margin: 1em 0;
+    }
+
+    text-align: left;
+    margin: 1em 0;
+}
+
+.auth-form {
+    text-align: left;
+
+    .form-group {
+        margin: 1em 0;
+
+        input {
+            padding: 2em 1em;
+        }
+
+        button {
+            padding: 1em 1em;
+        }
+
+        label {
+            text-align: left;
+        }
+    }
+}
+
+.auth-btn {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #fff;
+    background-color: $fourth-color;
+
+    &:hover {
+        background-color: $third-color;
+        color: #fff;
+    }
+}
+#close-btn {
+   cursor: pointer;
+}
