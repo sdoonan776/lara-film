@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to Lara Film, for all your movie rental needs">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Lara Film | @yield('title')</title>
     <link rel="shortcut icon" type="favicon" href="{{ asset('favicon.ico') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 <body>
@@ -15,13 +15,9 @@
         @include('partials.header')
     </header>
 
-    {{-- <nav>
-        @include('partials.sidebar')
-    </nav> --}}
-
-    <main class="content">
+    <main id="app" class="content-wrap">
         @yield('content')
-    </main>    
+    </main>
 
     <footer class="main-footer">
         @include('partials.footer')

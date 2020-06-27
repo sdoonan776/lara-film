@@ -1,15 +1,227 @@
- 
-// ==========================================================================
-// Mixins
-// ==========================================================================
+// Font Size Mixin
+@mixin font-size($fs: false, $lh: $default-line-height) {
 
+    // @include font-size($fs: 14px, $lh: 14px);
+    @if $fs {
+        font-size: $fs;
+    }
 
+    @if $lh {
+        line-height: $lh;
+    }
+}
 
-// ==========================================================================
-// Placeholders
-// ==========================================================================
+//
+// BREAKPOINTS
+//
+// @include breakpoint(breakpointname) {
+//     /* Styles */
+// }
 
-%links {
-	cursor: pointer;
-	transition: 0.3s ease;
+@mixin breakpoint($point) {
+    @if $point==desktop {
+        @media (max-width: 1279px) {
+            @content ;
+        }
+    }
+
+    @else if $point==laptop {
+        @media (max-width: 1199px) {
+            @content ;
+        }
+    }
+
+    @else if $point==tablet {
+        @media (max-width: 1023px) {
+            @content ;
+        }
+    }
+
+    @else if $point==smalltablet {
+        @media (max-width: 991px) {
+            @content ;
+        }
+    }
+
+    @else if $point==mobile {
+        @media (max-width: 767px) {
+            @content ;
+        }
+    }
+
+    @else if $point==mediumMobile {
+        @media (max-width: 575px) {
+            @content ;
+        }
+    }
+
+    @else if $point==smallmobile {
+        @media (max-width: 479px) {
+            @content ;
+        }
+    }
+}
+
+// --------------------------------------------------
+// Flexbox SASS mixins
+// --------------------------------------------------
+// @include flexbox;
+// Flexbox display
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+// Axis Alignment
+// - applies to: flex containers
+//@include justify-content(center);
+// flex-start | flex-end | center | space-between | space-around
+@mixin justify-content($justify) {
+    -webkit-justify-content: $justify;
+    -moz-justify-content: $justify;
+    -ms-justify-content: $justify;
+    justify-content: $justify;
+    -ms-flex-pack: $justify;
+}
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+//@include align-content(center);
+// flex-start | flex-end | center | space-between | space-around | stretch
+@mixin align-content($align) {
+    -webkit-align-content: $align;
+    -moz-align-content: $align;
+    -ms-align-content: $align;
+    align-content: $align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+//@include align-items(center);
+// flex-start | flex-end | center | baseline | stretch
+@mixin align-items($align) {
+    -webkit-align-items: $align;
+    -moz-align-items: $align;
+    -ms-align-items: $align;
+    align-items: $align;
+}
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+@mixin flex-flow($flow) {
+    -webkit-flex-flow: $flow;
+    -moz-flex-flow: $flow;
+    -ms-flex-flow: $flow;
+    flex-flow: $flow;
+}
+
+// full width element
+@mixin fullwidth {
+    float: left;
+    width: 100%;
+}
+
+// Image Cover
+@mixin imageCover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}
+
+// Align element center from all direction
+@mixin transform-center {
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+// Transform TranslateY
+@mixin translateY {
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+}
+
+// Transform TranslateY with choice
+@mixin translateYaxis($property) {
+    transform: translateY($property);
+    -webkit-transform: translateY($property);
+    -moz-transform: translateY($property);
+    -o-transform: translateY($property);
+    -ms-transform: translateY($property);
+}
+
+// Transform TranslateX
+@mixin translateX {
+    transform: TranslateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+}
+
+// Transform Rotate
+@mixin rotate($degrees) {
+    -webkit-transform: rotate($degrees);
+    -moz-transform: rotate($degrees);
+    -ms-transform: rotate($degrees);
+    -o-transform: rotate($degrees);
+    transform: rotate($degrees);
+}
+
+// Transform Scale
+@mixin transform-scale($scale) {
+    -webkit-transform: Scale($scale);
+    -moz-transform: Scale($scale);
+    -ms-transform: Scale($scale);
+    -o-transform: Scale($scale);
+    transform: Scale($scale);
+}
+
+// Transition
+@mixin transition-all($all-duration) {
+    transition: $all-duration;
+    -webkit-transition: $all-duration;
+    -moz-transition: $all-duration;
+    -ms-transition: $all-duration;
+    -o-transition: $all-duration;
+}
+
+// Border radius
+@mixin border-radius($radius) {
+    border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+}
+
+// Border radius for different corners
+@mixin radius-corners($topleft, $topright, $bottomright, $bottomleft) {
+    border-top-left-radius: $topleft;
+    border-top-right-radius: $topright;
+    border-bottom-right-radius: $bottomright;
+    border-bottom-left-radius: $bottomleft;
+    -webkit-border-top-left-radius: $topleft;
+    -webkit-border-top-right-radius: $topright;
+    -webkit-border-bottom-right-radius: $bottomright;
+    -webkit-border-bottom-left-radius: $bottomleft;
+    -moz-border-radius-topleft: $topleft;
+    -moz-border-radius-topright: $topright;
+    -moz-border-radius-bottomright: $bottomright;
+    -moz-border-radius-bottomleft: $bottomleft;
+}
+
+//box shadow
+@mixin box-shadow($top, $left, $blur, $size, $color) {
+    -webkit-box-shadow: $top $left $blur $size $color;
+    -moz-box-shadow: $top $left $blur $size $color;
+    box-shadow: $top $left $blur $size $color;
 }

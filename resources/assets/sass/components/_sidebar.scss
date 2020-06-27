@@ -1,14 +1,14 @@
 .sidenav {
-    height: 100%; 
-    width: 0; 
-    position: fixed; 
-    z-index: 999; 
-    top: 0; 
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
     right: 0;
-    background-color: $second-color; 
+    background-color: $secondary-color;
     box-shadow: $box-shadow;
-    overflow-x: hidden; 
-    transition: 0.5s; 
+    overflow-x: hidden;
+    transition: 0.5s;
 
     li {
         text-align: center;
@@ -23,11 +23,11 @@
         color: #000;
         transition: 0.3s;
         font-family: $main-font;
-        text-transform: uppercase; 
+        text-transform: uppercase;
         transition: $base-transition;
         &:hover {
-        background-color: $first-color;
-        color: $second-color;
+        background-color: $primary-color;
+        color: $secondary-color;
         }
     }
 
@@ -37,7 +37,7 @@
         left: -3em;
         width: 1em;
         margin: 2.3em 0 2.3em 0;
-        text-align: left;  
+        text-align: left;
         transition: $base-transition;
         &:hover {
         transform: rotate(90deg);

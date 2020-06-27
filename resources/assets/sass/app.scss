@@ -1,9 +1,8 @@
-// @import "~bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
 
 @import 'core/variables';
-@import 'core/reset';
+@import 'core/normalize';
 @import 'core/mixins';
-@import 'core/base';
 
 @import 'grids/main';
 
@@ -11,21 +10,52 @@
 @import 'components/footer';
 @import 'components/sidebar';
 @import 'components/search';
-@import 'components/slider';
 
-// Header 
+// Base
 
-.nav-wrap {
-    display: flex;
-    justify-content: between;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-.nav-collapse {
-    display: flex;
-    justify-content: between;
+html {
+    overflow-x: hidden;
+    width: 100vw;
+    font-family: $main-font;
+    width: 100%;
+    height: 100%;
 }
 
-// Home page
+body {
+    margin: 0 16px 0 0;
+    text-align: center;
+    color: $text-color;
+    width: 100%;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $heading-font-weight;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+// Home
 
 .movie-image-container {
     margin: 0 auto;
@@ -68,7 +98,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-    
+
 }
 
 
@@ -118,11 +148,10 @@
     width: 100%;
     border: 1px solid rgba(0,0,0,0.1);
     color: #fff;
-    background-color: $fourth-color;
+    background-color: $btn-color;
 
     &:hover {
-        background-color: $third-color;
-        color: #fff;
+        background-color: lighten($btn-color,  20%);
     }
 }
 #close-btn {
