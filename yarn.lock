@@ -2335,6 +2335,11 @@ del@^4.1.1:
     pify "^4.0.1"
     rimraf "^2.6.3"
 
+delicious-hamburgers@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/delicious-hamburgers/-/delicious-hamburgers-1.0.1.tgz#d9ab437f1531262aad8a00bfecda4d787b6d96dd"
+  integrity sha512-snkVoUSqjtUtddo7JRaR7s83J7phKhDZ64sQ90jkyPQneVSXsmDIyCR6lnfoHqeLDtirzLie9hafJRAW+Vq1dA==
+
 depd@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/depd/-/depd-1.1.2.tgz#9bcd52e14c097763e749b274c4346ed2e560b5a9"

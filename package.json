@@ -27,6 +27,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "delicious-hamburgers": "^1.0.1",
         "leaflet": "^1.6.0",
         "lightbox2": "^2.11.1",
         "lodash-webpack-plugin": "^0.11.5",

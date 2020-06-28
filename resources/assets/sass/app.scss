@@ -1,5 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
 
+$hamburger-color: #fff;
+
+@import "~delicious-hamburgers/scss/base";
+@import "~delicious-hamburgers/scss/animations/criss-cross";
+
 @import 'core/variables';
 @import 'core/normalize';
 @import 'core/mixins';
@@ -46,7 +51,6 @@ h6 {
 
 a {
     text-decoration: none;
-    color: #fff;
 }
 
 li {

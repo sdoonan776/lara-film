@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Rental;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class RentalController extends Controller
 {

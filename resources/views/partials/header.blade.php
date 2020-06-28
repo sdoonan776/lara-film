@@ -1,28 +1,81 @@
 <header class="main-header">
-	<nav class="nav-wrap navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">Larafilm</a>
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <a href="/">Larafilm</a>
+        </div>
 
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		  <span class="navbar-toggler-icon"></span>
-		</button>
+        <div class="hamburger hamburger--default navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="inner">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
 
-		<div class="nav-collapse collapse navbar-collapse" id="navbarSupportedContent">
-		  <ul class="navbar-nav mr-auto">
-			<li class="nav-item">
-			  <a class="nav-link" href="/">Home</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="/film">Films</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="/login">Login</a>
-			</li>
-			<li class="nav-item">
-			  <a class="nav-link" href="/register">Register</a>
-			</li>
-		  </ul>
-		</div>
-	  </nav>
+      <ul class="nav-items">
+        <li class="nav-item">
+            <a href="/">
+                Home
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/about">
+                About
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/login">
+                Login
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/register">
+                Register
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/films">
+                Top Rated
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="#">
+                <i class="fas fa-search"></i>
+            </a>
+        </li>
+      </ul>
+    </nav>
 </header>
+<div class="pos-f-">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <ul class="mobile-nav nav">
+            <a href="/">
+                <li class="nav-item">
+                    Home
+                </li>
+            </a>
+            <a href="/about">
+                <li class="nav-item">
+                    About
+                </li>
+            </a>
+            <a href="/login">
+                <li class="nav-item">
+                    Login
+                </li>
+            </a>
+            <a href="/register">
+                <li class="nav-item">
+                    Register
+                </li>
+            </a>
+            <a href="/films">
+                <li class="nav-item">
+                    Top Rated
+                </li>
+            </a>
+        </ul>
+    </div>
+</div>
 
 
