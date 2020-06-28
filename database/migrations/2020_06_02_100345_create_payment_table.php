@@ -14,19 +14,13 @@ class CreatePaymentTable extends Migration
     public function up()
     {
         Schema::create('payment', function (Blueprint $table) {
-            $table->increments('id');
-
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-            $table->integer('rental_id')->unsigned();
-            $table->foreign('rental_id')->references('id')->on('rental')->onDelete('cascade');
-
-            $table->integer('price');
-
+            $table->increments('payment_id');
+            $table->integer('customer_id');
+            $table->integer('staff_id');
+            $table->integer('rental_id');
+            $table->integer('amount');
             $table->date('payment_date');
-
-            $table->timestamps();
+            $table->dateTime('last_update');
         });
     }
 

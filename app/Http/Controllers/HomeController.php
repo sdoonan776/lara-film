@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace App\Http\Controllers;
 
+use App\Models\Film;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    
+
     /**
      * Renders main home page
      *
@@ -15,6 +16,10 @@ class HomeController extends Controller
      */
     public function __invoke(): View
     {
-        return view('pages.home');
+        $films = Film::all();
+        // dd($films);
+        return view('pages.home', [
+            'films' => $films
+        ]);
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace App\Http\Controllers;
 
-use App\Rental;
+use App\Staff;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class RentalController extends Controller
+class StaffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +41,10 @@ class RentalController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Rental  $rental
+     * @param  \App\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function show(Rental $rental)
+    public function show(Staff $staff)
     {
         //
     }
@@ -53,10 +52,10 @@ class RentalController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Rental  $rental
+     * @param  \App\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rental $rental)
+    public function edit(Staff $staff)
     {
         //
     }
@@ -65,10 +64,10 @@ class RentalController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Rental  $rental
+     * @param  \App\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rental $rental)
+    public function update(Request $request, Staff $staff)
     {
         //
     }
@@ -76,10 +75,10 @@ class RentalController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Rental  $rental
+     * @param  \App\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rental $rental)
+    public function destroy(Staff $staff)
     {
         //
     }

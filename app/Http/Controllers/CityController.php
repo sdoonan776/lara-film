@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace App\Http\Controllers;
 
-use App\Actor;
+use App\City;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
-class ActorController extends Controller
+class CityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +41,10 @@ class ActorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Actor  $actor
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function show(Actor $actor)
+    public function show(City $city)
     {
         //
     }
@@ -53,10 +52,10 @@ class ActorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Actor  $actor
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function edit(Actor $actor)
+    public function edit(City $city)
     {
         //
     }
@@ -65,10 +64,10 @@ class ActorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Actor  $actor
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Actor $actor)
+    public function update(Request $request, City $city)
     {
         //
     }
@@ -76,10 +75,10 @@ class ActorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Actor  $actor
+     * @param  \App\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Actor $actor)
+    public function destroy(City $city)
     {
         //
     }

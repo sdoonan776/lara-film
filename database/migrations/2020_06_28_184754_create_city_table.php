@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActorTable extends Migration
+class CreateCityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateActorTable extends Migration
      */
     public function up()
     {
-        Schema::create('actor', function (Blueprint $table) {
-            $table->increments('actor_id');
-            $table->string('first_name');
-            $table->string('last_name');
+        Schema::create('city', function (Blueprint $table) {
+            $table->increments('city_id');
+            $table->string('city');
+            $table->integer('country_id');
             $table->dateTime('last_update');
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -29,6 +28,6 @@ class CreateActorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actor');
+        Schema::dropIfExists('city');
     }
 }

@@ -14,15 +14,9 @@ class CreateFilmCategoryTable extends Migration
     public function up()
     {
         Schema::create('film_category', function (Blueprint $table) {
-            $table->increments('id');
-
-            $table->integer('film_id')->unsigned();
-            $table->foreign('film_id')->references('id')->on('film')->onDelete('cascade');
-
-            $table->integer('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
-
-            $table->timestamps();
+            $table->integer('film_id');
+            $table->integer('category_id');
+            $table->dateTime('last_update');
         });
     }
 

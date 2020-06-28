@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActorTable extends Migration
+class CreateCustomerTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,18 @@ class CreateActorTable extends Migration
      */
     public function up()
     {
-        Schema::create('actor', function (Blueprint $table) {
-            $table->increments('actor_id');
+        Schema::create('customer', function (Blueprint $table) {
+            $table->increments('customer_id');
+            $table->integer('store_id');
             $table->string('first_name');
             $table->string('last_name');
+            $table->string('email')->nullable();
+            $table->integer('address_id');
+            $table->boolean('active')->default(true);
+            $table->dateTime('create_date');
             $table->dateTime('last_update');
         });
     }
-
 
     /**
      * Reverse the migrations.
@@ -29,6 +33,6 @@ class CreateActorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actor');
+        Schema::dropIfExists('customer');
     }
 }

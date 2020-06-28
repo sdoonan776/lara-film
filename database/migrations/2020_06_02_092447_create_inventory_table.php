@@ -14,12 +14,10 @@ class CreateInventoryTable extends Migration
     public function up()
     {
         Schema::create('inventory', function (Blueprint $table) {
-            $table->increments('id');
-
-            $table->integer('film_id')->unsigned();
-            $table->foreign('film_id')->references('id')->on('film')->onDelete('cascade');
-
-            $table->timestamps();
+            $table->increments('inventory_id');
+            $table->integer('film_id');
+            $table->integer('store_id');
+            $table->dateTime('last_update');
         });
     }
 

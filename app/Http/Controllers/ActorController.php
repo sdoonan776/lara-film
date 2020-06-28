@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Film;
+use App\Actor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class FilmController extends Controller
+class ActorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class FilmController extends Controller
      */
     public function index()
     {
-        return view('film.index');
+        //
     }
 
     /**
@@ -42,10 +42,10 @@ class FilmController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Film  $film
+     * @param  \App\Actor  $actor
      * @return \Illuminate\Http\Response
      */
-    public function show(Film $film)
+    public function show(Actor $actor)
     {
         //
     }
@@ -53,10 +53,10 @@ class FilmController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Film  $film
+     * @param  \App\Actor  $actor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Film $film)
+    public function edit(Actor $actor)
     {
         //
     }
@@ -65,10 +65,10 @@ class FilmController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Film  $film
+     * @param  \App\Actor  $actor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Film $film)
+    public function update(Request $request, Actor $actor)
     {
         //
     }
@@ -76,10 +76,10 @@ class FilmController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Film  $film
+     * @param  \App\Actor  $actor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Film $film)
+    public function destroy(Actor $actor)
     {
         //
     }

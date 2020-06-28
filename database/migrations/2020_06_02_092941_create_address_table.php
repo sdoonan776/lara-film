@@ -14,18 +14,14 @@ class CreateAddressTable extends Migration
     public function up()
     {
         Schema::create('address', function (Blueprint $table) {
-            $table->increments('id');
-
-            $table->integer('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('country')->onDelete('cascade');
-
-            $table->string('address_1');
-            $table->string('address_2')->nullable();
+            $table->increments('address_id');
+            $table->string('address');
+            $table->string('address2')->nullable();
             $table->string('district');
-            $table->string('city');
-            $table->string('postal_code');
+            $table->integer('city_id');
+            $table->string('postal_code')->nullable();
             $table->string('phone');
-            $table->timestamps();
+            $table->dateTime('last_update');
         });
     }
 

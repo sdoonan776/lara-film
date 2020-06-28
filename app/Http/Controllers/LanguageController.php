@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Site;
+namespace App\Http\Controllers;
 
-use App\Address;
+use App\Language;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AddressController extends Controller
+class LanguageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class AddressController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Address  $address
+     * @param  \App\Language  $language
      * @return \Illuminate\Http\Response
      */
-    public function show(Address $address)
+    public function show(Language $language)
     {
         //
     }
@@ -53,10 +53,10 @@ class AddressController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Address  $address
+     * @param  \App\Language  $language
      * @return \Illuminate\Http\Response
      */
-    public function edit(Address $address)
+    public function edit(Language $language)
     {
         //
     }
@@ -65,10 +65,10 @@ class AddressController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Address  $address
+     * @param  \App\Language  $language
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Address $address)
+    public function update(Request $request, Language $language)
     {
         //
     }
@@ -76,10 +76,10 @@ class AddressController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Address  $address
+     * @param  \App\Language  $language
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Address $address)
+    public function destroy(Language $language)
     {
         //
     }

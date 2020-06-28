@@ -14,17 +14,13 @@ class CreateRentalTable extends Migration
     public function up()
     {
         Schema::create('rental', function (Blueprint $table) {
-            $table->increments('id');
-
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-
-            $table->integer('inventory_id')->unsigned();
-            $table->foreign('inventory_id')->references('id')->on('inventory')->onDelete('cascade');
-
-            $table->date('rental_date');
-            $table->date('return_date');
-            $table->timestamps();
+            $table->increments('rental_id');
+            $table->dateTime('rental_date');
+            $table->integer('inventory_id');
+            $table->integer('customer_id');
+            $table->dateTime('return_date');
+            $table->integer('staff_id');
+            $table->dateTime('last_update');
         });
     }
 

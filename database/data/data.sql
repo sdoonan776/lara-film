@@ -163,7 +163,6 @@ Insert into country
 Values
 ('24','Colombia','2006-02-15 04:44:00.000')
 ;
-select * from
 Insert into country
  (`country_id`,`country`,`last_update`)
 Values
@@ -104369,7 +104368,3 @@ Insert into rental
 Values
 ('6680','2005-07-12 12:01:56.000','2887','43','2005-07-16 17:32:56.000','1','2006-02-15 21:30:53.000')
 ;
-Insert into rental
- (`rental_id`,`rental_date`,`inventory_id`,`customer_id`,`return_date`,`staff_id`,`last_update`)
-Values
-('6681','2005-07-12 12:
