@@ -17,7 +17,10 @@ class HomeController extends Controller
     public function __invoke(): View
     {
         $films = Film::all();
-        // dd($films);
+
+        // foreach ($films as $film) {
+        //     dd($film->title);
+        // }
         return view('pages.home', [
             'films' => $films
         ]);

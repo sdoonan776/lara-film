@@ -15,7 +15,6 @@ import Counter from './components/Counter'
 
 const app = new Vue({
     el: '#app',
-    // template: `<h1>What up MotherFuckaaaaa!!</h1>`
     components: {
         Counter
     }

@@ -15,11 +15,21 @@ class CreateFilmTable extends Migration
     {
         Schema::create('film', function (Blueprint $table) {
             $table->increments('film_id');
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->year('release_year')->nullable();
-            $table->integer('language_id');
-            $table->integer('original_language_id')->nullable();
+            $table->integer('budget');
+            $table->set('genres', ['id', 'name'])->nullable()->default(null);
+            $table->string('homepage');
+            $table->integer('id');
+            $table->set('keywords', ['id', 'name'])->nullable()->default(null);
+            $table->string('original_language')->nullable();
+            $table->integer('original_title')->nullable();
+            $table->longtText('overview');
+            $table->float('popularity', 9, 3);
+            // $table->('overview');
+            //TODO finish creating the schema from the excel files
+
+
+
+
             $table->tinyInteger('rental_duration')->default(3);
             $table->integer('rental_rate')->default(499);
             $table->integer('length')->nullable();

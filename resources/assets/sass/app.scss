@@ -61,6 +61,17 @@ li {
 
 // Home
 
+.carousel-item {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.carousel-item img {
+    height: 100vw;
+    width: 100vw;
+}
+
 .movie-image-container {
     margin: 0 auto;
     text-align: center;
@@ -85,7 +96,6 @@ li {
             }
         }
     }
-
 }
 
 // film index
