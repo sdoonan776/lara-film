@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController')->name('pages.home');
+Route::get('/about', 'HomeController@about')->name('pages.about');
+Route::get('/', 'HomeController')->name('pages.home');
 
 Route::get('/film', 'FilmController@index');
 Route::get('/film/{film_id}', 'FilmController@show');

@@ -15,11 +15,26 @@ class Film extends Model
 
     protected $fillable = [
         'film_id',
+        'budget',
+        'genres',
+        'homepage',
+        'id',
+        'keywords',
+        'original_language',
+        'overview',
+        'popularity',
+        'production_companies',
+        'production_countries',
+        'release_date',
+        'revenue',
+        'runtime',
+        'spoken_languages',
+        'status',
+        'tagline',
         'title',
-        'description',
-        'release_year',
-        'language_id',
-        'original_language_id',
+        'vote_average',
+        'vote_count',
+        'rental_duration',
         'rental_rate',
         'length',
         'replacement_cost',
@@ -31,23 +46,4 @@ class Film extends Model
         'last_update' => 'datetime'
     ];
 
-    /**
-     * Gets languages related to films
-     *
-     * @return BelongsTo
-     */
-    public function languages(): BelongsTo
-    {
-        return $this->belongsTo(Language::class, 'language_id', 'film_id');
-    }
-
-    /**
-     * Gets category related to films
-     *
-     * @return HasMany
-     */
-    public function category(): HasMany
-    {
-        return $this->hasMany(Category::class, 'category_id', 'film_id');
-    }
 }

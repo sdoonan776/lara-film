@@ -18,9 +18,6 @@ class HomeController extends Controller
     {
         $films = Film::all();
 
-        // foreach ($films as $film) {
-        //     dd($film->title);
-        // }
         return view('pages.home', [
             'films' => $films
         ]);

@@ -4,7 +4,7 @@
             <a href="/">Larafilm</a>
         </div>
 
-        <div class="hamburger hamburger--default navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="hamburger hamburger--criss-cross navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="inner">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -77,5 +77,6 @@
         </ul>
     </div>
 </div>
+{{-- <div class="navbar-bottom"></div> --}}
 
 

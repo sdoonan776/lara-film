@@ -11,7 +11,7 @@ class LoadMovies extends Command
      *
      * @var string
      */
-    protected $signature = 'load:movies';
+    protected $signature = 'movies:load';
 
     /**
      * The console command description.

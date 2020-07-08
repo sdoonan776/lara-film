@@ -15,20 +15,28 @@ class CreateFilmTable extends Migration
     {
         Schema::create('film', function (Blueprint $table) {
             $table->increments('film_id');
+            $table->boolean('adult');
+            $table->set('belongs_to_collection', ['id', 'name', 'poster_path', 'backdrop_path'])->nullable()->default(null);
             $table->integer('budget');
             $table->set('genres', ['id', 'name'])->nullable()->default(null);
-            $table->string('homepage');
+            $table->string('homepage')->nullable()->default(null);
             $table->integer('id');
-            $table->set('keywords', ['id', 'name'])->nullable()->default(null);
+            $table->string('imdb_id');
             $table->string('original_language')->nullable();
             $table->integer('original_title')->nullable();
-            $table->longtText('overview');
+            $table->longText('overview');
             $table->float('popularity', 9, 3);
-            // $table->('overview');
-            //TODO finish creating the schema from the excel files
-
-
-
+            $table->set('production_companies', ['id', 'name'])->nullable()->default(null);
+            $table->set('production_countries', ['iso_3166_1', 'name'])->nullable()->default(null);
+            $table->date('release_date');
+            $table->integer('revenue');
+            $table->integer('runtime');
+            $table->set('spoken_languages', ['iso_639_1', 'name'])->nullable()->default(null);
+            $table->string('status');
+            $table->string('tagline');
+            $table->string('title');
+            $table->float('vote_average', 2, 1);
+            $table->integer('vote_count');
 
             $table->tinyInteger('rental_duration')->default(3);
             $table->integer('rental_rate')->default(499);
@@ -39,23 +47,7 @@ class CreateFilmTable extends Migration
             $table->dateTime('last_update');
         });
     }
-    /**
-     * film_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  title VARCHAR(255) NOT NULL,
-  description TEXT DEFAULT NULL,
-  release_year YEAR DEFAULT NULL,
-  language_id TINYINT UNSIGNED NOT NULL,
-  original_language_id TINYINT UNSIGNED DEFAULT NULL,
-  rental_duration TINYINT UNSIGNED NOT NULL DEFAULT 3,
-  rental_rate DECIMAL(4,2) NOT NULL DEFAULT 4.99,
-  length SMALLINT UNSIGNED DEFAULT NULL,
-  replacement_cost DECIMAL(5,2) NOT NULL DEFAULT 19.99,
-  rating ENUM('G','PG','PG-13','R','NC-17') DEFAULT 'G',
-  special_features SET('Trailers','Commentaries','Deleted Scenes','Behind the Scenes') DEFAULT NULL,
-  last_update TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-     *
-     * @return void
-     */
+
     /**
      * Reverse the migrations.
      *
@@ -63,6 +55,6 @@ class CreateFilmTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('film');
+        Schema::dropIfExists('film_metadata');
     }
 }
