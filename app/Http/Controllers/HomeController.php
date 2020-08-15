@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
 
     /**
-     * Renders main home page
+     * Returns main home page
      *
      * @return View
      */

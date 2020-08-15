@@ -19,11 +19,6 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="/about">
-                About
-            </a>
-        </li>
-        <li class="nav-item">
             <a href="/login">
                 Login
             </a>
@@ -52,11 +47,6 @@
             <a href="/">
                 <li class="nav-item">
                     Home
-                </li>
-            </a>
-            <a href="/about">
-                <li class="nav-item">
-                    About
                 </li>
             </a>
             <a href="/login">
