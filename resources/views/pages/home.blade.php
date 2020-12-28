@@ -11,15 +11,15 @@
                     <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block" src="{{ asset('images/banner-slide.jpg')}}" alt="First slide">
+                                <img class="d-block" src="{{ asset('images/glass_ver17_xlg.jpg')}}" alt="First slide">
                             </div>
                             <div class="carousel-item">
                                 <div class="banner-text">
-                                    <img class="d-block" src="{{ asset('images/banner-slide2.jpg') }}" alt="Second slide">
+                                    <img class="d-block" src="{{ asset('images/dark-knight-rises-movie-poster-banner-catwoman.jpg') }}" alt="Second slide">
                                 </div>
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block" src="{{ asset('images/banner-slide3.jpg')}}" alt="Third slide">
+                                <img class="d-block" src="{{ asset('images/gangsterSquad.jpg')}}" alt="Third slide">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-        @if (count($films) > 0)
+        {{-- @if (count($films) > 0)
             <section class="movie-section">
                 <div class="container">
                     @foreach ($films as $film)
@@ -57,7 +57,7 @@
                 <h1>No Films Available</h1>
                 <span>Please try again later</span>
             </div>
-        @endif
+        @endif --}}
 
 	</main>
 @endsection

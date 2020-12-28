@@ -36,5 +36,10 @@ services:
       - 6379:6379
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
+  mailhog:
+    image: 'mailhog/mailhog:latest'
+    ports:
+        - 1025:1025
+        - 8025:8025
 volumes:
   mysqldata:

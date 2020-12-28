@@ -14,12 +14,14 @@ class HomeController extends Controller
      *
      * @return View
      */
-    public function __invoke(): View
+    public function __invoke()
     {
-        $films = Film::all();
+        // $films = Film::all();
 
-        return view('pages.home', [
-            'films' => $films
-        ]);
+        // return view('pages.home', [
+        //     'films' => $films
+        // ]);
+
+        return view('pages.home');
     }
 }
