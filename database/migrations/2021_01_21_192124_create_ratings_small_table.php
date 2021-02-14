@@ -14,8 +14,10 @@ class CreateRatingsSmallTable extends Migration
     public function up()
     {
         Schema::create('ratings_small', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->integer('userId');
+            $table->integer('movieId');
+            $table->float('rating');
+            $table->date('timestamp');
         });
     }
 

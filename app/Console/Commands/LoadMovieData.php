@@ -18,7 +18,7 @@ class LoadMovies extends Command
      *
      * @var string
      */
-    protected $description = 'Loads movie list from csv file';
+    protected $description = 'Loads movie data from csv file';
 
     /**
      * Create a new command instance.
@@ -33,10 +33,11 @@ class LoadMovies extends Command
     /**
      * Execute the console command.
      *
+     * @param $csv
      * @return mixed
      */
-    public function handle()
+    public function handle($csv)
     {
-        //
+        
     }
 }

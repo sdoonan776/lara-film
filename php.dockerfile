@@ -14,5 +14,7 @@ RUN yes | pecl install xdebug \
     && echo "xdebug.remote_handler=dbgp" >> /usr/local/etc/php/conf.d/xdebug.ini \
     && echo "xdebug.max_nesting=1500" >> /usr/local/etc/php/conf.d/xdebug.ini
 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer    
+
 WORKDIR /var/www
 

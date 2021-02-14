@@ -14,7 +14,9 @@ class CreateLinksTable extends Migration
     public function up()
     {
         Schema::create('links', function (Blueprint $table) {
-            $table->id();
+            $table->integer('movieId');
+            $table->integer('imdbId');
+            $table->integer('tmdbId');
             $table->timestamps();
         });
     }

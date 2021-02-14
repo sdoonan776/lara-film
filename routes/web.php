@@ -10,10 +10,12 @@ Route::get('/', 'HomeController')->name('pages.home');
 Route::get('/film', 'FilmController@index');
 Route::get('/film/{film_id}', 'FilmController@show');
 
-Route::get('/users', 'UserController@index');
+Route::middleware('auth:web', function () {
+    Route::get('/users', 'UserController@index');
+    Route::get('/profile/{id}', 'UserController@index')->name('user.index');
+    Route::get('/profile/{id}/edit', 'UserController@edit')->name('user.edit');
+    Route::get('/profile/{id}/list', 'UserController@list');
+});
 
-Route::get('/profile/{id}', 'UserController@index')->name('user.index');
-Route::get('/profile/{id}/edit', 'UserController@edit')->name('user.edit');
-Route::get('/profile/{id}/list', 'UserController@list');
 
 
