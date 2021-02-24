@@ -2,13 +2,9 @@
 
 namespace App\Models;
 
-use App\Models\Category;
-use App\Models\Language;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Film extends Model
+class Movie extends Model
 {
 
     public $table = 'film';
