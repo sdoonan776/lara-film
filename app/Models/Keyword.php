@@ -2,15 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Credit extends Model
+class Keyword extends Model
 {
-    public $table = 'credits';
+    use HasFactory;
 
     protected $fillable = [
         'id',
-        'cast',
-        'crew'
+        'keywords'
     ];
 }

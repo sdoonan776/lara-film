@@ -14,13 +14,9 @@ class CreateCreditsTable extends Migration
     public function up()
     {
         Schema::create('credits', function (Blueprint $table) {
-            $table->integer('cast_id');
-            $table->string('character');
-            $table->integer('credit_id');
-            $table->integer('gender');
-            $table->string('name');
-            $table->integer('order');
-            $table->string('profile_path');
+            $table->integer('id');
+            $table->set('cast', ['cast_id', 'character', 'credit_id', 'gender', 'id', 'name', 'order', 'profile_path']);
+            $table->set('crew', ['credit_id', 'department', 'gender', 'id', 'job', 'name', 'profile_path']);
             $table->timestamps();
         });
     }

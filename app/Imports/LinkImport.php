@@ -2,23 +2,22 @@
 
 namespace App\Imports;
 
-use App\Models\Rating;
+use App\Models\Link;
 use App\Contracts\Importable;
 
-class RatingImport implements Importable
+class LinkImport implements Importable
 {
     public function import()
     {
-        $csvData = array_map('str_getcsv', file('ratings.csv'));
+        $csvData = array_map('str_getcsv', file('links.csv'));
         $csvHeader = $csvData[0];
         unset($csvData[0]);
         foreach($csvData as $row) {
             $row = array_combine($csvHeader, $row);
-            Rating::create([
-                'userId' => $row['userId'],
+            Link::create([
                 'movieId' => $row['movieId'],
-                'rating' => $row['rating'],
-                'timestamp' => $row['timestamp'] 
+                'imdbId' => $row['imdbId'],
+                'tmdbId' => $row['tmdbId'] ? $row['tmdbId'] : null 
             ]);
         }
     }
