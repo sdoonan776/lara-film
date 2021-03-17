@@ -3,14 +3,13 @@
 namespace App\Console\Commands;
 
 use App\Imports\LinkImport;
-use App\Imports\MovieImport;
 use App\Imports\CreditImport;
 use App\Imports\RatingImport;
 use App\Imports\KeywordImport;
 use Illuminate\Console\Command;
 use App\Imports\LinkSmallImport;
 use App\Imports\RatingSmallImport;
-use Illuminate\Support\Facades\Redirect;
+use App\Imports\MovieMetadataImport;
 
 class ImportMovieData extends Command
 {
@@ -28,7 +27,7 @@ class ImportMovieData extends Command
      */
     protected $description = 'Loads movie data from csv file';
 
-    protected $movieImport;
+    protected $movieMetadataImport;
     protected $creditImport;
     protected $linkImport;
     protected $ratingImport;
@@ -42,7 +41,7 @@ class ImportMovieData extends Command
      * @return void
      */
     public function __construct(
-        MovieImport $movieImport,
+        MovieMetadataImport $movieMetadataImport,
         CreditImport $creditImport,
         LinkImport $linkImport,
         RatingImport $ratingImport,
@@ -52,7 +51,7 @@ class ImportMovieData extends Command
     )
     {
         parent::__construct();
-        $this->movieImport = $movieImport;
+        $this->movieMetadataImport = $movieMetadataImport;
         $this->creditImport = $creditImport;
         $this->linkImport = $linkImport;
         $this->linkSmallImport = $linkSmallImport;
@@ -69,11 +68,12 @@ class ImportMovieData extends Command
      */
     public function handle()
     {
+        $this->movieMetadataImport->import();
         // $this->linkImport->import();
         // $this->linkSmallImport->import();
         // $this->ratingImport->import();
         // $this->ratingSmallImport->import();
-        $this->creditImport->import();
-        // $this->keywordsImport->import();
+        // $this->creditImport->import();
+        // $this->keywordImport->import();
     }
 }

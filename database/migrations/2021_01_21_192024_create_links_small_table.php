@@ -15,8 +15,8 @@ class CreateLinksSmallTable extends Migration
     {
         Schema::create('links_small', function (Blueprint $table) {
             $table->integer('movieId');
-            $table->integer('imdbId');
-            $table->integer('tmdbId');
+            $table->integer('imdbId')->nullable();
+            $table->integer('tmdbId')->nullable();
             $table->timestamps();
         });
     }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMoviesMetadataTable extends Migration
+class CreateMovieMetadataTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,25 +13,25 @@ class CreateMoviesMetadataTable extends Migration
      */
     public function up()
     {
-        Schema::create('movies_metadata', function (Blueprint $table) {
-            $table->integer('id');
+        Schema::create('movie_metadata', function (Blueprint $table) {
             $table->boolean('adult');
-            $table->json('belongs_to_collection')->nullable();
+            $table->text('belongs_to_collection')->nullable();
             $table->integer('budget');
-            $table->set('genres', ['id', 'name']);
+            $table->text('genres');
             $table->string('homepage')->nullable();
-            $table->integer('imdb_id');
+            $table->integer('id');
+            $table->string('imdb_id');
             $table->string('original_language')->nullable();
             $table->string('original_title')->nullable();
             $table->longText('overview');
             $table->float('popularity', 8, 6)->nullable();
             $table->string('poster_path')->nullable();
-            $table->set('production_companies', ['name', 'id'])->nullable();
-            $table->set('production_countries', ['iso_3166_1', 'name'])->nullable();
+            $table->text('production_companies')->nullable();
+            $table->text('production_countries')->nullable();
             $table->date('release_date')->nullable();
             $table->integer('revenue')->nullable();
             $table->integer('runtime');
-            $table->set('spoken_languages', ['iso_639_1', 'name'])->nullable();
+            $table->text('spoken_languages')->nullable();
             $table->string('status');
             $table->string('tagline');
             $table->string('title');
@@ -49,6 +49,6 @@ class CreateMoviesMetadataTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('movies_metadata');
+        Schema::dropIfExists('movie_metadata');
     }
 }

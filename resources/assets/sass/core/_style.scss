@@ -36,3 +36,23 @@ a {
 li {
     list-style: none;
 }
+
+.auth-form .card-header {
+    background-color: #fff;
+    border-bottom: none;
+    text-align: center;
+}
+
+.card-body .form-group input {
+    padding: 0;
+}
+
+.btn-primary {
+    background-color: $secondary-color;
+    color: $white;
+    border: none;
+
+    &:hover {
+        background-color: $btn-hover-color;
+    }
+}

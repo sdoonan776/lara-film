@@ -2,7 +2,6 @@
 
 namespace App\Imports;
 
-use App\Models\Link;
 use App\Models\Keyword;
 use App\Contracts\Importable;
 

@@ -4,18 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Movie extends Model
+class MovieMetadata extends Model
 {
+    public $table = 'movie_metadata';
+
     protected $fillable = [
-        'film_id',
+        'adult',
+        'belongs_to_collection',
         'budget',
         'genres',
         'homepage',
         'id',
-        'keywords',
+        'imdb_id',
         'original_language',
+        'original_title',
         'overview',
         'popularity',
+        'poster_path',
         'production_companies',
         'production_countries',
         'release_date',
@@ -25,18 +30,16 @@ class Movie extends Model
         'status',
         'tagline',
         'title',
+        'video',
         'vote_average',
-        'vote_count',
-        'rental_duration',
-        'rental_rate',
-        'length',
-        'replacement_cost',
-        'rating',
-        'special_features'
+        'vote_count'
     ];
 
     protected $casts = [
-        'last_update' => 'datetime'
+        'adult' => 'integer',
+        'video' => 'integer',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime'
     ];
 
 }

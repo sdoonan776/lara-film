@@ -5,16 +5,14 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['verify' => true]);
 
-Route::get('/', 'HomeController')->name('pages.home');
+Route::get('/', 'HomeController')->name('pages.index');
 
-Route::get('/film', 'FilmController@index');
-Route::get('/film/{film_id}', 'FilmController@show');
+Route::get('/movie', 'MovieController@index')->name('movie.index');
+Route::get('/movie/{id}', 'MovieController@show')->name('movie.show');
 
 Route::middleware('auth:web', function () {
-    Route::get('/users', 'UserController@index');
-    Route::get('/profile/{id}', 'UserController@index')->name('user.index');
+    Route::get('/profile', 'UserController@index')->name('user.index');
     Route::get('/profile/{id}/edit', 'UserController@edit')->name('user.edit');
-    Route::get('/profile/{id}/list', 'UserController@list');
 });
 
 
