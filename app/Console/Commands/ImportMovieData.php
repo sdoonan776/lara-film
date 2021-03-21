@@ -68,8 +68,8 @@ class ImportMovieData extends Command
      */
     public function handle()
     {
-        $this->movieMetadataImport->import();
-        // $this->linkImport->import();
+        // $this->movieMetadataImport->import();
+        $this->linkImport->import();
         // $this->linkSmallImport->import();
         // $this->ratingImport->import();
         // $this->ratingSmallImport->import();
