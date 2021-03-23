@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 
-class MovieNotFoundException extends Exception
+class NotFoundException extends Exception
 {
     
 }
