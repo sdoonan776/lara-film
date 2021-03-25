@@ -7,4 +7,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/movie/topRated', 'MovieController@getTopRatedMovies');
+Route::group(['prefix' => '/movie'], function () {
+    Route::get('/topRated', 'MovieController@getTopRatedMovies');
+    Route::get('/configuration', 'MovieController@getConfiguration');
+});

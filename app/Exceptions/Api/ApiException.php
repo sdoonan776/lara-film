@@ -2,9 +2,9 @@
 
 namespace App\Exceptions;
 
-use Exception;
+use App\Exceptions\TmdbException;
 
-class ApiException extends Exception
+class ApiException extends TmdbException
 {
     
 }

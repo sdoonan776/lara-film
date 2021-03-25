@@ -19,7 +19,7 @@ class RestClientServiceProvider extends ServiceProvider
                 [
                     'base_uri' => 'https://api.themoviedb.org/3/',
                     'headers' => [
-                        'api_key' => env('TMDB_API_KEY'),
+                        'Authorization' => "Bearer " . env('TMDB_API_KEY'),
                         'Access-Control-Allow-Origin' => '*',
                         'Accept' => 'application/json',
                     ]

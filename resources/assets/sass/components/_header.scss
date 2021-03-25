@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 0;
-    background-color: $secondary-color;
+    background-color: $primary-color;
     color: $primary-color;
 }
 
@@ -24,10 +24,10 @@
 .logout-form button {
     border: none;
     background: none;
-    color: #fff;
+    color: $white;
 
     &:hover {
-        color: #fff;
+        color: $white;
     }
 }
 

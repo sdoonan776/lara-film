@@ -23,8 +23,8 @@ class UrlTest extends TestCase
     public function getPublicUrls()
     {
         yield ['/'];
-        yield ['/film'];
-        yield ['/film/2'];
+        // yield ['/movie'];
+        // yield ['/film/2'];
         // yield ['/users/'];
         // yield ['//'];
     }

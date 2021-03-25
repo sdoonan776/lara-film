@@ -14,8 +14,22 @@ class MovieController
         $this->restApiService = $restApiService;
     }
 
+    /**
+     * Returns an array of top rated movies
+     *
+     * @return RestApiService
+     */
     public function getTopRatedMovies()
     {
-        $this->restApiService->getTopRatedMovies();
+        return $this->restApiService->getTopRatedMovies();
+    }
+    /**
+     * returns configuration object
+     *
+     * @return RestApiService
+     */
+    public function getConfiguration()
+    {
+        return $this->restApiService->getConfiguration();
     }
 }

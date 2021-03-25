@@ -2,9 +2,8 @@
 
 namespace App\Exceptions;
 
-use Exception;
-
-class NotFoundException extends Exception
+use App\Exceptions\TmdbException;
+class NotFoundException extends TmdbException
 {
     
 }

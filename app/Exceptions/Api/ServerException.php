@@ -2,9 +2,9 @@
 
 namespace App\Exceptions;
 
-use Exception;
+use App\Exceptions\TmdbException;
 
-class ServerException extends Exception
+class ServerException extends TmdbException
 {
     
 }

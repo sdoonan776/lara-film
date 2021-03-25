@@ -34,18 +34,18 @@
                 </div>
             </div>
         </div>
-        {{-- @if (count($films) > 0)
+        @if (count($movies) > 0)
             <section class="movie-section">
                 <div class="container">
-                    @foreach ($films as $film)
+                    @foreach ($movies as $movie)
                         <div class="row">
                             <div class="movie-image-container col-lg-12">
                                 <div class="movie-image">
-                                    <img src="" alt="">
+                                    <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
                                 </div>
                                 <div class="movie-info">
-                                    <p class="title"></p>
-                                    <p class="year"></p>
+                                    <p class="title">{{ $movie['original_title'] }}</p>
+                                    <p class="year">{{ $movie['release_date'] }}</p>
                                 </div>
                             </div>
                         </div>
@@ -57,7 +57,7 @@
                 <h1>No Films Available</h1>
                 <span>Please try again later</span>
             </div>
-        @endif --}}
+        @endif
 
 	</main>
 @endsection

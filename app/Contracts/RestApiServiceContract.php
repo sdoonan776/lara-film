@@ -9,4 +9,11 @@ interface RestApiServiceContract
      * @return Response
      */
     public function getTopRatedMovies();
+
+    /**
+     * Returns a configuration object
+     *
+     * @return Response
+     */
+    public function getConfiguration();
 }

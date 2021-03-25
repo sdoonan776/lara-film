@@ -28,8 +28,34 @@ class RestApiService implements RestApiServiceContract
     public function getTopRatedMovies()
     {
         try {
-            $response = $this->client->request('GET', '/movie/top_rated');
-            return json_decode($response->getBody()->getContents()['results'], true);
+            $response = $this->client->request('GET', '/3/movie/top_rated');
+            return json_decode($response->getBody()->getContents(), true);
+        } catch (RequestException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 404:
+                    throw new NotFoundException($exception->getMessage());
+                    break;
+                case 500:
+                    throw new ServerException($exception->getMessage());
+                    break;
+                default:
+                    throw new ApiException($exception->getMessage());
+                    break;
+            }
+        }
+    }
+    
+    
+    /**
+     * Returns a configuration object
+     *
+     * @return Response
+     */
+    public function getConfiguration()
+    {
+        try {
+            $response = $this->client->request('GET', '/3/configuration');
+            return json_decode($response->getBody()->getContents(), true);
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
                 case 404:

@@ -9,13 +9,3 @@ require('./close');
 require('./hamburger');
 require('./images');
 
-window.Vue = require('vue');
-
-import Counter from './components/Counter'
-
-const app = new Vue({
-    el: '#app',
-    components: {
-        Counter
-    }
-});

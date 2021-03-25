@@ -12,11 +12,14 @@
 // Colors
 // ==========================================================================
 
-$primary-color: #fff;
-$secondary-color: #1F2324;
+$primary-color: #1F2324;
+$secondary-color: #334549;
 $border-color: #a7a594;
 $btn-color: #b8ac42;
-$text-color: #000;
+$text-color: lighten($black, 10%);
+
+$white: #fff;
+$black: #000;
 
 $btn-hover-color: lighten(#1F2324, 20%);
 
