@@ -2,36 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MovieMetadata;
-use Illuminate\Http\Response;
-use App\Http\Controllers\Controller;
+use App\Services\RestApiService;
+use Illuminate\View\View;
 
 class MovieController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
+    protected $restApiService;
+
+    public function __construct(RestApiService $restApiService)
     {
-        $movies = MovieMetadata::all();
+        $this->restApiService = $restApiService;
+    }
+
+    /**
+     * Display all listings of the resource.
+     *
+     * @return View
+     */
+    public function index(): View
+    {
+        $movies = $this->restApiService->getTopRatedMovies()['results'];
+        $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
+        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][3];
 
         return view('movie.index', [
-            'movies' => $movies
+            'movies' => $movies,
+            'imageUrl' => $imageUrl,
+            'posterImageSize' => $posterImageSize
         ]);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  MovieMetadata $movie
-     * @return Response
+     * @param $movieId
+     * @return View
      */
-    public function show(MovieMetadata $movie)
+    public function show($movieId): View
     {
+        $movie = $this->restApiService->getMovie($movieId);
+        $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
+        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][4];
+
         return view('movie.show', [
-            'movie' => $movie
+            'movie' => $movie,
+            'imageUrl' => $imageUrl,
+            'posterImageSize' => $posterImageSize
         ]);
     }
 

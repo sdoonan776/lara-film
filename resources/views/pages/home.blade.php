@@ -37,19 +37,21 @@
         @if (count($movies) > 0)
             <section class="movie-section">
                 <div class="container">
-                    @foreach ($movies as $movie)
-                        <div class="row">
-                            <div class="movie-image-container col-lg-12">
+                    <div class="row">
+                        @foreach ($movies as $movie)
+                            <div class="movie-image-container col-lg">
                                 <div class="movie-image">
-                                    <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
+                                    <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
+                                        <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
+                                    </a>
                                 </div>
                                 <div class="movie-info">
                                     <p class="title">{{ $movie['original_title'] }}</p>
                                     <p class="year">{{ $movie['release_date'] }}</p>
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    </div>
                 </div>
             </section>
         @else

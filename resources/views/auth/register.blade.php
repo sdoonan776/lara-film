@@ -10,6 +10,10 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                    <div class="register-title col-lg-12">
+                        <h5 class="">Fill in the below information to create a new account</h5>
+                    </div>
+
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 

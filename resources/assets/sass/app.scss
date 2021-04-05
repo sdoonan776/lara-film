@@ -78,9 +78,11 @@ $hamburger-animation-speed: 2;
 // auth form
 
 .login-section {
+    color: $text-color;
 
     h5 {
         margin: 1em 0;
+        color: $text-color;
     }
 
     text-align: left;
@@ -88,9 +90,19 @@ $hamburger-animation-speed: 2;
 }
 
 .register-section {
+    color: $text-color;
+    text-align: center;
+    padding: 0 0 2em 0;
+    font-size: 1.3em;
+    font-weight: 600;
 
     h5 {
         margin: 1em 0;
+        color: $text-color;
+        text-align: center;
+        padding: 0 0 2em 0;
+        font-size: 1.3em;
+        font-weight: 600;
     }
 
     text-align: left;
@@ -99,6 +111,10 @@ $hamburger-animation-speed: 2;
 
 .auth-form {
     text-align: left;
+
+    .register-title h5 {
+        color: $text-color;
+    }
 
     .form-group {
         margin: 1em 0;
@@ -113,6 +129,7 @@ $hamburger-animation-speed: 2;
 
         label {
             text-align: left;
+            color: $text-color;
         }
     }
 }

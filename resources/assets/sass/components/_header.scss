@@ -3,7 +3,7 @@
     align-items: center;
     margin-bottom: 0;
     background-color: $primary-color;
-    color: $primary-color;
+    color: $white;
 }
 
 .navbar-brand {
@@ -12,7 +12,7 @@
     font-weight: 600;
     font-size: 1.8rem;
     a {
-        color: #fff;
+        color: $white;
         text-transform: uppercase;
         letter-spacing: .3rem;
         &:hover {
@@ -79,9 +79,9 @@
 
     .nav-item {
         margin: 0 1.5em;
-        color: darken($primary-color, 20%);
+        color: darken($white, 20%);
         a {
-            color: $primary-color;
+            color: $white;
             &:hover {
                 text-decoration: none;
             }

@@ -20,7 +20,7 @@
         </li>
         <li class="nav-item">
             <a href="{{ route('movie.index') }}">
-                Top Rated
+                Releases
             </a>
         </li>
         @guest
@@ -63,7 +63,7 @@
             </a>
             <a href="{{ route('movie.index') }}">
                 <li class="nav-item">
-                    Top Rated
+                    Releases
                 </li>
             </a>
             @guest

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\ApiException;
+use App\Exceptions\NotFoundException;
+use App\Exceptions\ServerException;
 use Illuminate\View\View;
 use App\Services\RestApiService;
 use App\Http\Controllers\Controller;
@@ -23,10 +26,10 @@ class HomeController extends Controller
      */
     public function __invoke()
     {
-        $movies = $this->restApiService->getTopRatedMovies()['results'];
+        $movies = $this->restApiService->getRecentMovies()['results'];
         $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
         $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][3];
-        // dd($movies);
+
         return view('pages.home', [
             'movies' => $movies,
             'imageUrl' => $imageUrl,
