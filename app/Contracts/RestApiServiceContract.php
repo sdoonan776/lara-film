@@ -35,6 +35,14 @@ interface RestApiServiceContract
     public function getConfiguration(): array;
 
     /**
+     * Returns the trailer associated with a movie
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getTrailer($id);
+
+    /**
      * Returns creates a rating based on a movie id
      *
      * @param int $id

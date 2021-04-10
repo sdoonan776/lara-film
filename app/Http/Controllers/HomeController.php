@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         $movies = $this->restApiService->getRecentMovies()['results'];
         $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
-        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][3];
+        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][2];
 
         return view('pages.home', [
             'movies' => $movies,

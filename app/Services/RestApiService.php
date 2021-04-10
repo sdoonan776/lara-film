@@ -125,6 +125,32 @@ class RestApiService implements RestApiServiceContract
     }
 
     /**
+     * Returns the trailer associated with a movie
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getTrailer($id)
+    {
+        try {
+            $response = $this->client->request('GET', '/3/movie/' . $id . '/videos');
+            return json_decode($response->getBody()->getContents(), true);
+        } catch (RequestException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 404:
+                    throw new NotFoundException($exception->getMessage());
+                    break;
+                case 500:
+                    throw new ServerException($exception->getMessage());
+                    break;
+                default:
+                    throw new ApiException($exception->getMessage());
+                    break;
+            }
+        }
+    }
+
+    /**
      * Returns a configuration object
      *
      * @param $id

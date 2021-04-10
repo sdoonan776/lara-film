@@ -36,18 +36,15 @@
         </div>
         @if (count($movies) > 0)
             <section class="movie-section">
-                <div class="container">
-                    <div class="row">
+                <div class="container now-playing">
+                    <h6>Now Playing</h6>
+                    <div class="owl-carousel owl-theme">
                         @foreach ($movies as $movie)
-                            <div class="movie-image-container col-lg">
-                                <div class="movie-image">
+                            <div class="movie-image-container col-lg-3">
+                                <div class="movie-image" style="width: 12em;">
                                     <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
                                         <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
                                     </a>
-                                </div>
-                                <div class="movie-info">
-                                    <p class="title">{{ $movie['original_title'] }}</p>
-                                    <p class="year">{{ $movie['release_date'] }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -63,3 +60,26 @@
 
 	</main>
 @endsection
+<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            dots: true,
+            arrows: true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        });
+    });
+</script>

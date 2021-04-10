@@ -23,7 +23,7 @@ class MovieController extends Controller
     {
         $movies = $this->restApiService->getTopRatedMovies()['results'];
         $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
-        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][3];
+        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][2];
 
         return view('movie.index', [
             'movies' => $movies,
@@ -42,12 +42,14 @@ class MovieController extends Controller
     {
         $movie = $this->restApiService->getMovie($movieId);
         $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
-        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][4];
+        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][2];
+        $trailer = $this->restApiService->getTrailer($movieId)['results'][0]['key'];
 
         return view('movie.show', [
             'movie' => $movie,
             'imageUrl' => $imageUrl,
-            'posterImageSize' => $posterImageSize
+            'posterImageSize' => $posterImageSize,
+            'trailer' => $trailer
         ]);
     }
 

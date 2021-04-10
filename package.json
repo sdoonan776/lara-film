@@ -29,6 +29,7 @@
     },
     "dependencies": {
         "delicious-hamburgers": "^1.0.1",
-        "lodash-webpack-plugin": "^0.11.5"
+        "lodash-webpack-plugin": "^0.11.5",
+        "owl.carousel": "^2.3.4"
     }
 }
