@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
-<div>
-    {{$users}}
-</div>
+@section('title', 'Home')
+@section('content')
+    <div>
+
+
+    </div>
+@endsection

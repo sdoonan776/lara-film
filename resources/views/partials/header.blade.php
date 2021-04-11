@@ -42,7 +42,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <form class="logout-form" method="POST" action="{{ route('logout') }}">
+                <form class="logout-form" method="POST" action="{{ route('logout') }}" style="margin: 0;">
                     @csrf
                     <button class="btn" type="submit">
                         Logout

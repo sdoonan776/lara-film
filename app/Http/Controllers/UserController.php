@@ -8,11 +8,10 @@ use App\Contracts\UserRepositoryInterface;
 
 class UserController extends Controller
 {
-    protected $users;
 
-    public function __construct(UserRepositoryInterface $users)
+    public function __construct()
     {
-        $this->users = $users;
+
     }
 
      /**
@@ -21,6 +20,6 @@ class UserController extends Controller
       */
     public function index(): View
     {
-        return view('users.index', ['users' => $this->users->all()]);
+        return view('user.index');
     }
 }
