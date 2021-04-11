@@ -6,6 +6,7 @@
 /public/storage
 /storage/*.key
 /vendor
+.idea/
 /database/data
 .env
 .env.backup
