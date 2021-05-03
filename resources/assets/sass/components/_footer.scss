@@ -3,4 +3,16 @@
     margin: 0 auto;
     width: 100%;
     background-color: #1F2324;
+    color: $white;
+
+    .social-icons {
+        svg {
+            height: 1.2em;
+            margin: 1em;
+            cursor: pointer;
+        }
+    }
 }
+
+
+

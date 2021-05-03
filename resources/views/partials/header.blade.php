@@ -4,6 +4,26 @@
             <a href="{{ route('pages.index') }}">Larafilm</a>
         </div>
 
+{{--        <div class="typeahead__container">--}}
+{{--            <div class="typeahead__field">--}}
+{{--                <div class="typeahead__query">--}}
+{{--                    <input class="js-typeahead"--}}
+{{--                           name="q"--}}
+{{--                           autocomplete="off">--}}
+{{--                </div>--}}
+{{--                <div class="typeahead__button">--}}
+{{--                    <button type="submit">--}}
+{{--                        <span class="typeahead__search-icon"></span>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+        <form id="demo-2" method="POST" action="{{ route('search.post') }}">
+            @csrf
+            <input class="js-typeahead" type="search" name="search" placeholder="Search">
+        </form>
+
         <div class="hamburger hamburger--criss-cross navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="inner">
                 <span class="bar"></span>

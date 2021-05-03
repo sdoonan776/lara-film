@@ -1,7 +1,6 @@
 <?php
 namespace App\Services;
 
-use App\Exceptions\TmdbException;
 use GuzzleHttp\Client;
 use Illuminate\Http\Response;
 use App\Exceptions\ApiException;

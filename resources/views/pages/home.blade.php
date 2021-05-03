@@ -15,15 +15,6 @@
                                     <img class="d-block" src="{{ $imageUrl }}{{ $backdropImageSize }}{{ $movie['backdrop_path'] }}" alt="First slide">
                                 </div>
                             @endforeach
-{{--                            <div class="carousel-item active">--}}
-{{--                                <img class="d-block" src="{{ asset('images/glass_ver17_xlg.jpg')}}" alt="First slide">--}}
-{{--                            </div>--}}
-{{--                            <div class="carousel-item">--}}
-{{--                                <img class="d-block" src="{{ asset('images/dark-knight-rises-movie-poster-banner-catwoman.jpg') }}" alt="Second slide">--}}
-{{--                            </div>--}}
-{{--                            <div class="carousel-item">--}}
-{{--                                <img class="d-block" src="{{ asset('images/gangsterSquad.jpg')}}" alt="Third slide">--}}
-{{--                            </div>--}}
                         </div>
                         <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -111,39 +102,39 @@
 
 	</main>
 @endsection
-<script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
-<script>
-    $(document).ready(function(){
-        $('.owl-carousel').owlCarousel({
-            dots: true,
-            arrows: true,
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:5
-                }
-            }
-        });
+{{--<script--}}
+{{--    src="https://code.jquery.com/jquery-3.6.0.min.js"--}}
+{{--    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="--}}
+{{--    crossorigin="anonymous"></script>--}}
+{{--<script>--}}
+{{--    $(document).ready(function(){--}}
+{{--        $('.owl-carousel').owlCarousel({--}}
+{{--            dots: true,--}}
+{{--            arrows: true,--}}
+{{--            responsive:{--}}
+{{--                0:{--}}
+{{--                    items:1--}}
+{{--                },--}}
+{{--                600:{--}}
+{{--                    items:3--}}
+{{--                },--}}
+{{--                1000:{--}}
+{{--                    items:5--}}
+{{--                }--}}
+{{--            }--}}
+{{--        });--}}
 
 
-        // for(let j = 0; j < 5; j++) {
-        //     $('<div class="carousel-item"><img
-        //     src="https://loremflickr.com/320/240" width="50%">
-        //         </div>').appendTo('.carousel-inner');
-        //     $('<li data-target="#carousel" data-slide-to="'+j+'">
-        //         </li>').appendTo('.carousel-indicators')
-        // }
+{{--        // for(let j = 0; j < 5; j++) {--}}
+{{--        //     $('<div class="carousel-item"><img--}}
+{{--        //     src="https://loremflickr.com/320/240" width="50%">--}}
+{{--        //         </div>').appendTo('.carousel-inner');--}}
+{{--        //     $('<li data-target="#carousel" data-slide-to="'+j+'">--}}
+{{--        //         </li>').appendTo('.carousel-indicators')--}}
+{{--        // }--}}
 
-        $('.carousel-item').first().addClass('active');
-        $('.carousel-indicators > li').first().addClass('active');
-        $('#carousel').carousel();
-    });
-</script>
+{{--        $('.carousel-item').first().addClass('active');--}}
+{{--        $('.carousel-indicators > li').first().addClass('active');--}}
+{{--        $('#carousel').carousel();--}}
+{{--    });--}}
+{{--</script>--}}

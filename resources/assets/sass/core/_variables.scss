@@ -7,6 +7,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 // ==========================================================================
 // Colors
@@ -29,7 +30,8 @@ $btn-hover-color: lighten(#1F2324, 20%);
 // ==========================================================================
 
 $logo-font: 'Bungee Inline', cursive;
-$main-font: Fredoka One, cursive;
+//$main-font: Fredoka One, cursive;
+$main-font: 'Roboto', sans-serif;
 $nav-font: Source Sans Pro, sans-serif;
 
 // ==========================================================================

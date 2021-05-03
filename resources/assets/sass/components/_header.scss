@@ -59,6 +59,11 @@
     }
 }
 
+.hamburger span.bar,
+.hamburger.active span.bar {
+    background-color: $white;
+}
+
 .navbar-toggler {
     background: none;
     border: none;

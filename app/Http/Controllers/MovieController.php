@@ -3,16 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Exceptions\ApiException;
+use App\Services\GenreService;
 use App\Services\RestApiService;
 use Illuminate\View\View;
 
 class MovieController extends Controller
 {
     protected $restApiService;
+    protected $genreService;
 
-    public function __construct(RestApiService $restApiService)
+    public function __construct(
+        RestApiService $restApiService,
+        GenreService $genreService
+    )
     {
         $this->restApiService = $restApiService;
+        $this->genreService = $genreService;
     }
 
     /**
@@ -27,13 +33,15 @@ class MovieController extends Controller
         $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
         $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
         $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][0];
+        $genres = $this->genreService->getGenres()['genres'];
 
         return view('movie.index', [
             'recentMovies' => $recentMovies,
             'popularMovies' => $popularMovies,
             'imageUrl' => $imageUrl,
             'backdropImageSize' => $backdropImageSize,
-            'posterImageSize' => $posterImageSize
+            'posterImageSize' => $posterImageSize,
+            'genres' => $genres
         ]);
     }
 

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $movie['title'])
-
+@section('content')
 <div style="background: url( {{$imageUrl }}{{ $backdropImageSize }}{{ $movie['backdrop_path'] }});
             background-size: cover;
             background-repeat: no-repeat;
@@ -26,6 +26,11 @@
                         @endforeach
                     </div>
 
+                    <div class="row">
+                        <p>{{ date('j F, Y', strtotime($movie['release_date'])) }} |</p>
+                        <p>  {{ $movie['runtime'] }} mins |</p>
+                    </div>
+
                 </div>
             </div>
             <div class="row">
@@ -36,15 +41,22 @@
                     <iframe src="https://youtube.com/embed/{{ $trailer }}"
                             width="560" height="315" frameborder="0" allowfullscreen></iframe>
 
-                    <div class="movie-stats">
-                        <div class="row">
-                            <div class="date col-lg">
-                                <p> {{ date('Y', strtotime($movie['release_date'])) }}</p>
-                            </div>
-                            <div class="runtime col-lg">
-                                <p> {{ $movie['runtime'] }} mins </p>
-                            </div>
-                        </div>
+                    <div class="movie-actions">
+                        @guest
+                            <form method="POST" action="#">
+                                <button class="btn movie-btn" type="submit" disabled>Add to Watchlist</button>
+                            </form>
+                        @endguest
+                        @auth
+                            <form method="POST" action="#">
+                                <button class="btn movie-btn" type="submit">Add to Watchlist</button>
+                            </form>
+                        @endauth
+
+                        <a class="btn movie-btn" href="">
+                            See Show Times
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -73,4 +85,6 @@
             </div>
         </main>
     </div>
+
+    @endsection
 
