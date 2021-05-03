@@ -20,6 +20,18 @@ class UserController extends Controller
       */
     public function index(): View
     {
-        return view('user.index');
+        $user = auth()->user();
+        return view('user.index',
+            ['user' => $user]
+        );
+    }
+
+    /**
+      * Displays user index
+      * @return View
+      */
+    public function edit(): View
+    {
+        return view('user.edit');
     }
 }

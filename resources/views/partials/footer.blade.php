@@ -1,4 +1,4 @@
- 	{{-- <footer class="main-footer">
+ 	 <footer class="main-footer">
 	 <div class="copyright">
 		<small>&copy;{{ date('Y') }} Movie Web | All rights reserved</small>
 	 </div>
@@ -9,4 +9,4 @@
   crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../../public/js/app.js"></script>
 	</body>
-</html> --}}
+</html>

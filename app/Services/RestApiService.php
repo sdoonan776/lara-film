@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 
+use App\Exceptions\TmdbException;
 use GuzzleHttp\Client;
 use Illuminate\Http\Response;
 use App\Exceptions\ApiException;
@@ -73,6 +74,56 @@ class RestApiService implements RestApiServiceContract
     }
 
     /**
+     * Returns an array of popular movies (updates daily)
+     *
+     * @return array
+     */
+    public function getPopularMovies(): array
+    {
+        try {
+            $response = $this->client->request('GET', '/3/movie/popular');
+            return json_decode($response->getBody()->getContents(), true);
+        } catch (RequestException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 404:
+                    throw new NotFoundException($exception->getMessage());
+                    break;
+                case 500:
+                    throw new ServerException($exception->getMessage());
+                    break;
+                default:
+                    throw new ApiException($exception->getMessage());
+                    break;
+            }
+        }
+    }
+
+    /**
+     * Returns an array of upcoming movies (updates daily)
+     *
+     * @return array
+     */
+    public function getUpcomingMovies(): array
+    {
+        try {
+            $response = $this->client->request('GET', '/3/movie/upcoming');
+            return json_decode($response->getBody()->getContents(), true);
+        } catch (RequestException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 404:
+                    throw new NotFoundException($exception->getMessage());
+                    break;
+                case 500:
+                    throw new ServerException($exception->getMessage());
+                    break;
+                default:
+                    throw new ApiException($exception->getMessage());
+                    break;
+            }
+        }
+    }
+
+    /**
      * Returns a single movie resource with a given Id
      *
      * @param $id
@@ -82,6 +133,58 @@ class RestApiService implements RestApiServiceContract
     {
         try {
             $response = $this->client->request('GET', '/3/movie/' . $id);
+            return json_decode($response->getBody()->getContents(), true);
+        } catch (RequestException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 404:
+                    throw new NotFoundException($exception->getMessage());
+                    break;
+                case 500:
+                    throw new ServerException($exception->getMessage());
+                    break;
+                default:
+                    throw new ApiException($exception->getMessage());
+                    break;
+            }
+        }
+    }
+
+    /**
+     * Returns an array of movie credits with a given movie id
+     *
+     * @param $id
+     * @return array
+     */
+    public function getMovieCredits($id): array
+    {
+        try {
+            $response = $this->client->request('GET', '/3/movie/' . $id . '/credits');
+            return json_decode($response->getBody()->getContents(), true);
+        } catch (RequestException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 404:
+                    throw new NotFoundException($exception->getMessage());
+                    break;
+                case 500:
+                    throw new ServerException($exception->getMessage());
+                    break;
+                default:
+                    throw new ApiException($exception->getMessage());
+                    break;
+            }
+        }
+    }
+
+    /**
+     * Returns an array of movie images with a given movie id
+     *
+     * @param $id
+     * @return array
+     */
+    public function getMovieImages($id): array
+    {
+        try {
+            $response = $this->client->request('GET', '/3/movie/' . $id . '/images');
             return json_decode($response->getBody()->getContents(), true);
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {

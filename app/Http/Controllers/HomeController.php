@@ -26,14 +26,26 @@ class HomeController extends Controller
      */
     public function __invoke()
     {
-        $movies = $this->restApiService->getRecentMovies()['results'];
-        $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
-        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][2];
+        try {
+            $recentMovies = $this->restApiService->getRecentMovies()['results'];
+            $upcomingMovies = $this->restApiService->getUpcomingMovies()['results'];
+            $popularMovies = $this->restApiService->getPopularMovies()['results'];
+            $topRatedMovies = $this->restApiService->getTopRatedMovies()['results'];
+            $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
+            $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][2];
+            $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
+        } catch (ApiException $e) {
+            console.log($e);
+        }
 
         return view('pages.home', [
-            'movies' => $movies,
+            'recentMovies' => $recentMovies,
+            'popularMovies' => $popularMovies,
+            'upcomingMovies' => $upcomingMovies,
+            'topRatedMovies' => $topRatedMovies,
             'imageUrl' => $imageUrl,
-            'posterImageSize' => $posterImageSize
+            'posterImageSize' => $posterImageSize,
+            'backdropImageSize' => $backdropImageSize
         ]);
     }
 }

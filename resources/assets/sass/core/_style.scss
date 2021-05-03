@@ -18,7 +18,6 @@ body {
     color: $text-color;
     width: 100%;
     height: 100%;
-    background-color: $primary-color;
     color: $white;
 }
 
@@ -37,6 +36,10 @@ a {
 
 li {
     list-style: none;
+}
+
+.row {
+    margin: 0;
 }
 
 .auth-form .card-header {
@@ -97,8 +100,10 @@ li {
 .now-playing h6 {
     font-weight: 600;
     text-align: left;
-    font-size: 1.2em;
-    padding: 1em;
+    font-size: 2.2em;
+    margin: 1em 0 0 0.34em;
+    border-bottom: 5px solid #FFCB47;
+    padding: 0 0 0.3em 0;
 }
 
 .owl-carousel .owl-item img {
@@ -108,13 +113,14 @@ li {
 // film movie
 
 .movie-index-content {
-    margin: 1em 0;
+    margin: 1em auto;
     color: #fff;
 
     table {
         color: #fff;
-        margin: 2em 0;
-        text-align: left;
+        background-color: #1F2324;
+        margin: 3em 0 0 0;
+        border-radius: 10px;
     }
 }
 
@@ -127,6 +133,12 @@ li {
 
 .movie-header {
     text-align: left;
+    background-color: #1F2324;
+    width: 100%;
+    margin: 3em 0 0 0;
+    padding: 2em;
+    border-radius: 10px 10px 0 0;
+
     h2 {
         font-size: 3em;
         font-weight: 600;
@@ -135,6 +147,44 @@ li {
 
 .movie-content {
     text-align: left;
+    width: 100%;
+    background-color: #1F2324;
+    padding: 1em 3em;
+}
+
+.movie-media {
+    width: 100%;
+    background-color: $primary-color;
+}
+
+.cast-list {
+    padding: 0;
+    text-align: left;
+    background-color: #fff;
+    color: $text-color;
+    border-radius: 10px;
+    height: 20em;
+    overflow-y: auto;
+}
+
+.credits-section {
+    text-align: left;
+    width: 100%;
+    background-color: #1F2324;
+    padding: 1em 3em;
+}
+
+.credit-row {
+    padding: 2em;
+}
+
+.credit-row p {
+    margin: 0;
+}
+
+.credits-section .cast-list div:nth-child(2n) {
+    background-color: lighten(#1F2324, 40%);
+    color: #fff;
 }
 
 // auth form
@@ -207,5 +257,4 @@ li {
 #close-btn {
     cursor: pointer;
 }
-
 

@@ -1,6 +1,8 @@
 <?php
 namespace App\Contracts;
 
+use App\Exceptions\TmdbException;
+use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\Response;
 
 interface RestApiServiceContract
@@ -20,12 +22,42 @@ interface RestApiServiceContract
     public function getRecentMovies(): array;
 
     /**
+     * Returns an array of popular movies (updates daily)
+     *
+     * @return array
+     */
+    public function getPopularMovies(): array;
+
+    /**
+     * Returns an array of upcoming movies (updates daily)
+     *
+     * @return array
+     */
+    public function getUpcomingMovies(): array;
+
+    /**
      * Returns a single movie resource with a given Id
      *
      * @param $id
      * @return array
      */
     public function getMovie($id): array;
+
+    /**
+     * Returns an array of movie credits with a given movie id
+     *
+     * @param $id
+     * @return array
+     */
+    public function getMovieCredits($id): array;
+
+    /**
+     * Returns an array of movie images with a given movie id
+     *
+     * @param $id
+     * @return array
+     */
+    public function getMovieImages($id): array;
 
     /**
      * Returns a configuration object

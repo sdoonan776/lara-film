@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\ApiException;
 use App\Services\RestApiService;
 use Illuminate\View\View;
 
@@ -21,13 +22,17 @@ class MovieController extends Controller
      */
     public function index(): View
     {
-        $movies = $this->restApiService->getTopRatedMovies()['results'];
+        $recentMovies = $this->restApiService->getRecentMovies()['results'];
+        $popularMovies = $this->restApiService->getPopularMovies()['results'];
         $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
-        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][2];
+        $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
+        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][0];
 
         return view('movie.index', [
-            'movies' => $movies,
+            'recentMovies' => $recentMovies,
+            'popularMovies' => $popularMovies,
             'imageUrl' => $imageUrl,
+            'backdropImageSize' => $backdropImageSize,
             'posterImageSize' => $posterImageSize
         ]);
     }
@@ -40,15 +45,28 @@ class MovieController extends Controller
      */
     public function show($movieId): View
     {
-        $movie = $this->restApiService->getMovie($movieId);
-        $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
-        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][2];
-        $trailer = $this->restApiService->getTrailer($movieId)['results'][0]['key'];
+        try {
+            $movie = $this->restApiService->getMovie($movieId);
+            $credits = $this->restApiService->getMovieCredits($movieId);
+            $images = $this->restApiService->getMovieImages($movieId);
+            $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
+            $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][2];
+            $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
+            $profileImageSize = $this->restApiService->getConfiguration()['images']['profile_sizes'][0];
+
+            $trailer = $this->restApiService->getTrailer($movieId)['results'][0]['key'];
+        } catch (ApiException $e) {
+            return [];
+        }
 
         return view('movie.show', [
             'movie' => $movie,
+            'credits' => $credits,
+            'images' => $images,
             'imageUrl' => $imageUrl,
             'posterImageSize' => $posterImageSize,
+            'backdropImageSize' => $backdropImageSize,
+            'profileImageSize' => $profileImageSize,
             'trailer' => $trailer
         ]);
     }
