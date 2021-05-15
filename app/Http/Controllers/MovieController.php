@@ -79,4 +79,17 @@ class MovieController extends Controller
         ]);
     }
 
+    /**
+     * Returns the dates view for a specified movie id
+     * @param $id
+     * @return VIew
+     */
+    public function dates($id)
+    {
+        $movie = $this->restApiService->getMovie($id);
+        return view('movie.dates', [
+            'movie' => $movie
+        ]);
+    }
+
 }

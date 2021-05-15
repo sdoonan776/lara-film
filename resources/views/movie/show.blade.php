@@ -53,7 +53,7 @@
                             </form>
                         @endauth
 
-                        <a class="btn movie-btn" href="">
+                        <a class="btn movie-btn" href="{{ route('movie.dates', [ 'id' => $movie['id'] ]) }}">
                             See Show Times
                         </a>
 
@@ -71,7 +71,7 @@
                 <h3>Cast</h3>
                 <div class="cast-list">
                     @foreach($credits['cast'] as $cast)
-                        <div class="credit-row row justify-content-around">
+                        <div class="credit-row row justify-content-around align-items-center">
                             @if($cast['profile_path'])
                                 <img src="{{ $imageUrl }}{{ $profileImageSize }}{{ $cast['profile_path'] }}" alt="cast-image">
                             @else

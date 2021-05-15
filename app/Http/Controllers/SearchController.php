@@ -26,16 +26,21 @@ class SearchController extends Controller
 
     public function search(Request $request)
     {
-        $search = $request->search;
-        $searches = $this->searchService->getMultiSearch($search)['results'];
-        $popularMovies = $this->restApiService->getPopularMovies()['results'];
-        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][0];
-        $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
-        $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
+        try {
+            $search = $request->search;
+            $searches = $this->searchService->getMultiSearch($search)['results'];
+//            $popularMovies = $this->restApiService->getPopularMovies()['results'];
+            $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][0];
+            $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
+            $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
+        } catch (ApiException $e) {
+            dd($e);
+//            return [];
+        }
 
         return view('movie.search', [
             'imageUrl' => $imageUrl,
-            'popularMovies' => $popularMovies,
+//            'popularMovies' => $popularMovies,
             'posterImageSize' => $posterImageSize,
             'backdropImageSize' => $backdropImageSize,
             'search' => $search,
