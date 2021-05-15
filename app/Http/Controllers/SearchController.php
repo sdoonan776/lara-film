@@ -29,7 +29,8 @@ class SearchController extends Controller
         try {
             $search = $request->search;
             $searches = $this->searchService->getMultiSearch($search)['results'];
-//            $popularMovies = $this->restApiService->getPopularMovies()['results'];
+//            dd($searches);
+            $popularMovies = $this->restApiService->getPopularMovies()['results'];
             $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][0];
             $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
             $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
@@ -40,7 +41,7 @@ class SearchController extends Controller
 
         return view('movie.search', [
             'imageUrl' => $imageUrl,
-//            'popularMovies' => $popularMovies,
+            'popularMovies' => $popularMovies,
             'posterImageSize' => $posterImageSize,
             'backdropImageSize' => $backdropImageSize,
             'search' => $search,

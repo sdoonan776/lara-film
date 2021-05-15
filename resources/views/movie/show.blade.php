@@ -44,7 +44,7 @@
                     <div class="movie-actions">
                         @guest
                             <form method="POST" action="#">
-                                <button class="btn movie-btn" type="submit" disabled>Add to Watchlist</button>
+                                <button class="btn .disabled-movie-btn" type="submit" disabled>Add to Watchlist</button>
                             </form>
                         @endguest
                         @auth

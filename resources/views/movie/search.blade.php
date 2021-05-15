@@ -8,6 +8,7 @@
         background-repeat: no-repeat;
         background-position: center;">
         <div class="container movie-index-content">
+            @if (count($searches) > 0)
             <table class="table movie-table">
                 <thead>
                 <tr>
@@ -24,7 +25,7 @@
                         <th scope="row">{{ ++$i }}</th>
                         <td>
                             <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
-                                <img src="{{ $imageUrl }}{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="movie-image">
+                                <img src="{{ $imageUrl }}{{ $posterImageSize }}{{ $movie['poster_path'] ?? 'No Image' }}" alt="movie-image">
                             </a>
                         </td>
                         <td>
@@ -40,11 +41,16 @@
                             <td>{{ date('d/m/Y', strtotime($movie['release_date'])) }}</td>
                         @else
                         @endif
-                        <td>{{ $movie['vote_average'] }}</td>
+                        <td>{{ $movie['vote_average'] ?? 'No Vote Average' }}</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+            @else
+                <div class="container no-search-results">
+                    <h1 class="jumbotron">No Search Results Found</h1>
+                </div>
+            @endif
         </div>
     </div>
 @endsection

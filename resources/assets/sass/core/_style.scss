@@ -176,6 +176,17 @@ li {
     }
 }
 
+.disabled-movie-btn {
+    color: #fff;
+    height: 4em;
+    width: 15em;
+    background: #1F2324;
+    border: 1px solid #fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
 .movie-actions {
     margin: auto;
 
@@ -282,3 +293,8 @@ li {
     cursor: pointer;
 }
 
+// Search Page
+
+.no-search-results {
+    height: 42em;
+}
