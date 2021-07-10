@@ -11,8 +11,8 @@
                     <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             @foreach($popularMovies as $movie)
-                                <div class="carousel-item">
-                                    <img class="d-block" src="{{ $imageUrl }}{{ $backdropImageSize }}{{ $movie['backdrop_path'] }}" alt="First slide">
+                                <div class="carousel-item" style="background-image: url("{{ $imageUrl }}{{ $backdropImageSize }}{{ $movie['backdrop_path'] }}");">
+{{--                                    <img class="d-block" src="{{ $imageUrl }}{{ $backdropImageSize }}{{ $movie['backdrop_path'] }}" alt="Movie Slide">--}}
                                 </div>
                             @endforeach
                         </div>
@@ -106,23 +106,23 @@
 {{--    src="https://code.jquery.com/jquery-3.6.0.min.js"--}}
 {{--    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="--}}
 {{--    crossorigin="anonymous"></script>--}}
-{{--<script>--}}
-{{--    $(document).ready(function(){--}}
-{{--        $('.owl-carousel').owlCarousel({--}}
-{{--            dots: true,--}}
-{{--            arrows: true,--}}
-{{--            responsive:{--}}
-{{--                0:{--}}
-{{--                    items:1--}}
-{{--                },--}}
-{{--                600:{--}}
-{{--                    items:3--}}
-{{--                },--}}
-{{--                1000:{--}}
-{{--                    items:5--}}
-{{--                }--}}
-{{--            }--}}
-{{--        });--}}
+<script>
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            dots: true,
+            arrows: true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        });
 
 
 {{--        // for(let j = 0; j < 5; j++) {--}}
@@ -136,5 +136,5 @@
 {{--        $('.carousel-item').first().addClass('active');--}}
 {{--        $('.carousel-indicators > li').first().addClass('active');--}}
 {{--        $('#carousel').carousel();--}}
-{{--    });--}}
-{{--</script>--}}
+    });
+</script>

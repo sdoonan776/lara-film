@@ -7,7 +7,6 @@ use App\Exceptions\NotFoundException;
 use App\Exceptions\ServerException;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
 
 class MovieService extends BaseTmdbService

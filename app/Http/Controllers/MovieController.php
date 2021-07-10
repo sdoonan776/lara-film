@@ -31,8 +31,8 @@ class MovieController extends Controller
      */
     public function index(): View
     {
-        $recentMovies = $this->movieService->getRecentMovies()['results'];
-        $popularMovies = $this->movieService->getPopularMovies()['results'];
+        $recentMovies = $this->movieService->getRecentMovies();
+        $popularMovies = $this->movieService->getPopularMovies();
         $imageConfig = $this->configService->getConfiguration();
         $genres = $this->genreService->getGenres()['genres'];
 
