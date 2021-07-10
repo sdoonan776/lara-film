@@ -1,30 +1,32 @@
 <?php
 
+
 namespace App\Services\TMDB;
+
 
 use App\Exceptions\ApiException;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\ServerException;
+use App\Exceptions\TmdbException;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Support\Collection;
 
-class GenreService extends BaseTmdbService
+class ConfigService extends BaseTmdbService
 {
 
     /**
-     * Returns an array of available genres
+     * Returns a configuration object
      *
      * @return Collection
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws NotFoundException
      * @throws ServerException
+     * @throws NotFoundException
      * @throws ApiException
      */
-    public function getGenres(): Collection
+    public function getConfiguration(): Collection
     {
         try {
-            $response = $this->client->get('/3/genre/movie/list');
-            return collect(json_decode($response->getBody()->getContents(), true)['results']);
+            $response = $this->client->get('/3/configuration');
+            return collect(json_decode($response->getBody()->getContents(), true));
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
                 case 404:

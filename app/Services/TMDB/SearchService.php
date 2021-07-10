@@ -1,32 +1,26 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\TMDB;
 
-use App\Services\RestApiService;
-use GuzzleHttp\Client;
+use App\Services\TMDB\BaseTmdbService;
 use GuzzleHttp\Exception\RequestException;
+use Illuminate\Support\Collection;
 
-class SearchService extends RestApiService
+class SearchService extends BaseTmdbService
 {
-    protected $client;
-
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
 
     /**
      * Returns an array of available genres
      *
      * @param string $query
-     * @return mixed
+     * @return Collection
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function getMultiSearch(string $query = '')
     {
         try {
-            $response = $this->client->request('GET', '/3/search/multi?query=' . $query);
-            return json_decode($response->getBody()->getContents(), true);
+            $response = $this->client->get('/3/search/multi?query=' . $query);
+            return collect(json_decode($response->getBody()->getContents(), true)['results']);
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
                 case 404:

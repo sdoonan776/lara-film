@@ -2,23 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Exceptions\ApiException;
-use App\Services\GenreService;
-use App\Services\RestApiService;
+use App\Services\TMDB\ConfigService;
+use App\Services\TMDB\GenreService;
+use App\Services\TMDB\MovieService;
 use Illuminate\View\View;
 
 class MovieController extends Controller
 {
-    protected $restApiService;
+    protected $movieService;
     protected $genreService;
+    protected $configService;
 
     public function __construct(
-        RestApiService $restApiService,
-        GenreService $genreService
+        MovieService $movieService,
+        GenreService $genreService,
+        ConfigService $configService
     )
     {
-        $this->restApiService = $restApiService;
+        $this->movieService = $movieService;
         $this->genreService = $genreService;
+        $this->configService = $configService;
     }
 
     /**
@@ -28,19 +31,17 @@ class MovieController extends Controller
      */
     public function index(): View
     {
-        $recentMovies = $this->restApiService->getRecentMovies()['results'];
-        $popularMovies = $this->restApiService->getPopularMovies()['results'];
-        $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
-        $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
-        $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][0];
+        $recentMovies = $this->movieService->getRecentMovies()['results'];
+        $popularMovies = $this->movieService->getPopularMovies()['results'];
+        $imageConfig = $this->configService->getConfiguration();
         $genres = $this->genreService->getGenres()['genres'];
 
         return view('movie.index', [
             'recentMovies' => $recentMovies,
             'popularMovies' => $popularMovies,
-            'imageUrl' => $imageUrl,
-            'backdropImageSize' => $backdropImageSize,
-            'posterImageSize' => $posterImageSize,
+            'imageUrl' => $imageConfig['images']['base_url'],
+            'backdropImageSize' => $imageConfig['images']['backdrop_sizes'][3],
+            'posterImageSize' => $imageConfig['images']['poster_sizes'][0],
             'genres' => $genres
         ]);
     }
@@ -48,45 +49,37 @@ class MovieController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param $movieId
+     * @param string $movieId
      * @return View
      */
-    public function show($movieId): View
+    public function show(string $movieId): View
     {
-        try {
-            $movie = $this->restApiService->getMovie($movieId);
-            $credits = $this->restApiService->getMovieCredits($movieId);
-            $images = $this->restApiService->getMovieImages($movieId);
-            $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
-            $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][2];
-            $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
-            $profileImageSize = $this->restApiService->getConfiguration()['images']['profile_sizes'][0];
-
-            $trailer = $this->restApiService->getTrailer($movieId)['results'][0]['key'];
-        } catch (ApiException $e) {
-            return [];
-        }
+        $movie = $this->movieService->getMovie($movieId);
+        $credits = $this->movieService->getMovieCredits($movieId);
+        $images = $this->movieService->getMovieImages($movieId);
+        $imageConfig = $this->configService->getConfiguration();
+        $trailer = $this->movieService->getMovieTrailer($movieId)[0]['key'];
 
         return view('movie.show', [
             'movie' => $movie,
             'credits' => $credits,
             'images' => $images,
-            'imageUrl' => $imageUrl,
-            'posterImageSize' => $posterImageSize,
-            'backdropImageSize' => $backdropImageSize,
-            'profileImageSize' => $profileImageSize,
+            'imageUrl' => $imageConfig['images']['base_url'],
+            'posterImageSize' => $imageConfig['images']['poster_sizes'][2],
+            'backdropImageSize' => $imageConfig['images']['backdrop_sizes'][3],
+            'profileImageSize' => $imageConfig['images']['profile_sizes'][0],
             'trailer' => $trailer
         ]);
     }
 
     /**
      * Returns the dates view for a specified movie id
-     * @param $id
-     * @return VIew
+     * @param string $movieId
+     * @return View
      */
-    public function dates($id)
+    public function dates(string $movieId): View
     {
-        $movie = $this->restApiService->getMovie($id);
+        $movie = $this->movieService->getMovie($movieId);
         return view('movie.dates', [
             'movie' => $movie
         ]);
