@@ -59,13 +59,24 @@ li {
 
 // Home
 
+.slide-overlay  {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: #1F2324;
+    h1 {
+        font-size: 1.5rem;
+        color: #fff;
+    }
+}
+
 .carousel-item {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-.carousel-item img {
+.carousel-item .banner-image {
     height: 50vw;
     width: 100vw;
 }
@@ -109,6 +120,10 @@ li {
     width: 12em;
 }
 
+.movie-image-container .movie-image {
+    margin: 0 auto;
+}
+
 // film movie
 
 .movie-index-content {
@@ -122,10 +137,6 @@ li {
         padding: 3em 0 0 0;
         border-radius: 10px;
     }
-}
-
-@media only screen and (min-width: 768px) {
-
 }
 
 

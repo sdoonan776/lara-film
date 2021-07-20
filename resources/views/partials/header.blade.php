@@ -19,9 +19,9 @@
 {{--            </div>--}}
 {{--        </div>--}}
 
-        <form id="demo-2" method="POST" action="{{ route('search.post') }}">
+        <form id="demo-2" method="POST" action="{{ route('search.post') }}" style="margin: 0;">
             @csrf
-            <input class="js-typeahead" type="search" name="search" placeholder="Search">
+            <input class="js-typeahead" style="height: 1.1em;" type="search" name="search" placeholder="Search">
         </form>
 
         <div class="hamburger hamburger--criss-cross navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">

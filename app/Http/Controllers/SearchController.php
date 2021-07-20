@@ -2,50 +2,60 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\GenreService;
-use App\Services\RestApiService;
-use App\Services\SearchService;
+use App\Exceptions\ApiException;
+use App\Services\TMDB\ConfigService;
+use App\Services\TMDB\GenreService;
+use App\Services\TMDB\MovieService;
+use App\Services\TMDB\SearchService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+use Illuminate\View\View;
 
 class SearchController extends Controller
 {
-    protected $restApiService;
+    protected $movieService;
     protected $genreService;
     protected $searchService;
+    protected $configService;
 
     public function __construct(
-        RestApiService $restApiService,
+        MovieService $movieService,
         GenreService $genreService,
-        SearchService $searchService
+        SearchService $searchService,
+        ConfigService $configService
     )
     {
-        $this->restApiService = $restApiService;
+        $this->movieService = $movieService;
         $this->genreService = $genreService;
         $this->searchService = $searchService;
+        $this->configService = $configService;
     }
 
-    public function search(Request $request)
+    /**
+     * Handles the
+     * @param Request $request
+     * @return View
+     */
+    public function search(Request $request): Collection
     {
         try {
-            $search = $request->search;
+            $search = $request->get('search');
             $searches = $this->searchService->getMultiSearch($search)['results'];
-//            dd($searches);
-            $popularMovies = $this->restApiService->getPopularMovies()['results'];
-            $posterImageSize = $this->restApiService->getConfiguration()['images']['poster_sizes'][0];
-            $backdropImageSize = $this->restApiService->getConfiguration()['images']['backdrop_sizes'][3];
-            $imageUrl = $this->restApiService->getConfiguration()['images']['base_url'];
+            $popularMovies = $this->movieService->getPopularMovies()['results'];
+            $posterImageSize = $this->movieService->getConfiguration()['images']['poster_sizes'][0];
+            $backdropImageSize = $this->movieService->getConfiguration()['images']['backdrop_sizes'][3];
+            $imageUrl = $this->configService->getConfiguration()['images']['base_url'];
         } catch (ApiException $e) {
-            dd($e);
-//            return [];
+            return collect([]);
         }
 
-        return view('movie.search', [
-            'imageUrl' => $imageUrl,
-            'popularMovies' => $popularMovies,
-            'posterImageSize' => $posterImageSize,
-            'backdropImageSize' => $backdropImageSize,
-            'search' => $search,
-            'searches' => $searches
-        ]);
+//        return view('movie.search', [
+//            'imageUrl' => $imageUrl,
+//            'popularMovies' => $popularMovies,
+//            'posterImageSize' => $posterImageSize,
+//            'backdropImageSize' => $backdropImageSize,
+//            'search' => $search,
+//            'searches' => $searches
+//        ]);
     }
 }
