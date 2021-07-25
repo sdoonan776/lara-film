@@ -60,7 +60,7 @@ li {
 // Home
 
 .slide-overlay  {
-    position: relative;
+    position: absolute;
     bottom: 0;
     width: 100%;
     background-color: #1F2324;
@@ -106,7 +106,13 @@ li {
     }
 }
 
-.now-playing h6 {
+.no-movie-image-container {
+    width: 185px;
+    height: 278px;
+    background-color: #809296; 
+}
+
+.movie-section h6 {
     font-weight: 600;
     text-align: left;
     font-size: 2.2em;
