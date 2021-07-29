@@ -10,13 +10,13 @@ class WatchListControllerTest extends TestCase
 {
     /**
      * A basic feature test example.
-     *
-     * @return void
+     * @test
+     * @group watchListTest
      */
-    public function test_example()
+    public function shouldSaveAMovieIntoTheWatchListAsALoggedInUser()
     {
-        $response = $this->get('/');
+        $user = $this->createUser();
+        $this->be($user);
 
-        $response->assertStatus(200);
     }
 }
