@@ -64,8 +64,14 @@ li {
     bottom: 0;
     width: 100%;
     background-color: #1F2324;
+    opacity: .8;
+    text-align: left;
     h1 {
-        font-size: 1.5rem;
+        font-size: 3rem;
+        color: #fff;
+        text-align: left;
+    }
+    a {
         color: #fff;
     }
 }
@@ -74,6 +80,21 @@ li {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+}
+
+@media only screen and (min-width: 768px) {
+    .carousel-item {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+}
+
+carousel-control-prev-icon {
+    padding: 2em;
+    background-color: #1F2324;
+    opacity: .8;
+    color: #fff;
 }
 
 .carousel-item .banner-image {
@@ -109,7 +130,7 @@ li {
 .no-movie-image-container {
     width: 185px;
     height: 278px;
-    background-color: #809296; 
+    background-color: #809296;
 }
 
 .movie-section h6 {

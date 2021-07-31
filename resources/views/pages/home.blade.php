@@ -21,7 +21,10 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <h1>{{ $movie['title'] }}</h1>
+                                        <div class="slide-overlay-link">
+                                            <h1>{{ $movie['title'] }}</h1>
+                                            <a href="">Watch the latest Trailer</a>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach
@@ -38,7 +41,7 @@
                 </div>
             </div>
         </div>
-        @if (count($recentMovies) > 0)
+        @if (isset($recentMovies))
             <section class="movie-section">
                 <div class="container now-playing">
                     <h6>Now Playing</h6>
