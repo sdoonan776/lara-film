@@ -46,7 +46,7 @@
                 <div class="container now-playing">
                     <h6>Now Playing</h6>
                     @foreach ($recentMovies as $movie)
-                        <div class="movie-image-container col-lg-3">
+                        <div class="movie-image-container col-lg">
                             <div class="movie-image" style="width: 12em;">
                                 <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
                                     <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
