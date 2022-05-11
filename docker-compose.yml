@@ -1,37 +1,33 @@
 version: '3'
 services:
-  web:
+  php:
     build:
       context: ./
-      dockerfile: web.dockerfile
+      dockerfile: Dockerfile
     volumes:
       - ./:/var/www
     ports:
       - "8080:80"
-    links:
-      - php
-  php:
-    build:
-      context: ./
-      dockerfile: php.dockerfile
-    volumes:
-      - ./:/var/www
     environment:
       - "DB_PORT=3306"
       - "DB_HOST=mysql"
-  mysql:
-    image: mysql:5.7
+    volumes:
+      - ./:/srv/app 
+    depends_on:
+      - mariadb
+  mariadb:
+    image: mariadb:10.6
     ports:
       - 33061:3306
     volumes:
       - mysqldata:/var/lib/mysql
     environment:
-      - "MYSQL_DATABASE=homestead"
-      - "MYSQL_USER=homestead"
-      - "MYSQL_PASSWORD=secret"
-      - "MYSQL_ROOT_PASSWORD=secret"
+      - "MARIADB_DATABASE=homestead"
+      - "MARIADB_USER=homestead"
+      - "MARIADB_PASSWORD=secret"
+      - "MARIADB_ROOT_PASSWORD=secret"
   redis:
-    image: 'bitnami/redis:latest'
+    image: 'redis:latest'
     ports:
       - 6379:6379
     environment:
