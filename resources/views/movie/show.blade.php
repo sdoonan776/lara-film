@@ -43,7 +43,7 @@
 
                     <div class="movie-actions">
                         @guest
-                            <form method="POST" action="{{ route('watchList.store') }}">
+                            <form method="POST" action="{{ route('watchList.store', $movie['id']) }}">
                                 <button class="btn .disabled-movie-btn" type="submit" disabled>Add to Watchlist</button>
                             </form>
                         @endguest

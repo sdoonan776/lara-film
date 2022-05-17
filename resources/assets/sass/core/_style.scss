@@ -103,9 +103,10 @@ carousel-control-prev-icon {
 }
 
 .movie-image-container {
-    //margin: 0 auto;
+    margin: 0 auto;
     text-align: center;
     padding: 1em;
+    width: 14em;
 
     .movie-info {
         display: flex;

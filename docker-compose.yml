@@ -1,41 +1,41 @@
-version: '3'
 services:
-  php:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    volumes:
-      - ./:/var/www
-    ports:
-      - "8080:80"
-    environment:
-      - "DB_PORT=3306"
-      - "DB_HOST=mysql"
-    volumes:
-      - ./:/srv/app 
-    depends_on:
-      - mariadb
-  mariadb:
-    image: mariadb:10.6
-    ports:
-      - 33061:3306
-    volumes:
-      - mysqldata:/var/lib/mysql
-    environment:
-      - "MARIADB_DATABASE=homestead"
-      - "MARIADB_USER=homestead"
-      - "MARIADB_PASSWORD=secret"
-      - "MARIADB_ROOT_PASSWORD=secret"
-  redis:
-    image: 'redis:latest'
-    ports:
-      - 6379:6379
-    environment:
-      - ALLOW_EMPTY_PASSWORD=yes
-  mailhog:
-    image: 'mailhog/mailhog:latest'
-    ports:
-        - 1025:1025
-        - 8025:8025
+    php:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+        ports:
+            - "8080:80"
+        volumes:
+            - ./:/srv/app
+        environment:
+            - "DB_PORT=3306"
+            - "DB_HOST=mysql"
+            - "REDIS_HOST=redis"
+        depends_on:
+          - mysql 
+    mysql:
+        image: mysql:5.7
+        ports:
+            - "33061:3306"
+        volumes:
+            - mysqldata:/var/lib/mysql
+        environment:
+            - "MYSQL_DATABASE=homestead"
+            - "MYSQL_USER=homestead"
+            - "MYSQL_PASSWORD=secret"
+            - "MYSQL_ROOT_PASSWORD=secret"
+    redis:
+        image: redis:latest
+        ports:
+            - "6379:6379"
+    mailhog:
+        image: mailhog/mailhog
+        logging:
+            driver: 'none'
+        ports:
+            - "1025:1025"
+            - "8025:8025"
 volumes:
-  mysqldata:
+    mysqldata:
