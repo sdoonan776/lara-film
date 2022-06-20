@@ -4,7 +4,6 @@
 
 @section('content')
 	<main class="content-wrap" style="background-color: #1F2324;">
-
         <div class="container-fluid" style="padding: 0;">
             <div class="row">
                 <div class="banner">
@@ -118,22 +117,3 @@
 
 	</main>
 @endsection
-<script>
-    $(document).ready(function(){
-        $('.owl-carousel').owlCarousel({
-            dots: true,
-            arrows: true,
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:5
-                }
-            }
-        });
-    });
-</script>

@@ -11,7 +11,7 @@ abstract class TestCase extends BaseTestCase
 
     public function createUser()
     {
-        User::create([
+        return User::create([
             'name' => 'Joe Bloggs',
             'email' => 'test@test.com',
             'password' => bcrypt('P455w0rd')

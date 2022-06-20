@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('password_resets', function (Blueprint $table) {
-            $table->string('email')->index();
-            $table->string('token');
-            $table->timestamp('created_at')->nullable();
+        Schema::create('production_companies', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('movie_id');
+            $table->string('name');
+            $table->string('logo_path')->nullable();
+            $table->string('origin_country');
+            $table->timestamps();
         });
     }
 
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('password_resets');
+        Schema::dropIfExists('production_companies');
     }
 };

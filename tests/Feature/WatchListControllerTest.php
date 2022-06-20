@@ -8,6 +8,7 @@ use Tests\TestCase;
 
 class WatchListControllerTest extends TestCase
 {
+    use RefreshDatabase;
     /**
      * A basic feature test example.
      * @test
@@ -18,5 +19,8 @@ class WatchListControllerTest extends TestCase
         $user = $this->createUser();
         $this->be($user);
 
+        $this->assertDatabaseHas('users', [
+            'name' => 'Joe Bloggs' 
+        ]); 
     }
 }
