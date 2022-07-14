@@ -4,6 +4,7 @@
 
 @section('content')
 	<main class="content-wrap" style="background-color: #1F2324;">
+
         <div class="container-fluid" style="padding: 0;">
             <div class="row">
                 <div class="banner">
@@ -44,17 +45,15 @@
             <section class="movie-section">
                 <div class="container now-playing">
                     <h6>Now Playing</h6>
-                    <div class="row">
-                        @foreach ($recentMovies as $movie)
-                            <div class="movie-image-container col-lg-3">
-                                <div class="movie-image" style="width: 12em;">
-                                    <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
-                                        <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
-                                    </a>
-                                </div>
+                    @foreach ($recentMovies as $movie)
+                        <div class="movie-image-container col-lg">
+                            <div class="movie-image" style="width: 12em;">
+                                <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
+                                    <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
+                                </a>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </section>
         @else
@@ -94,17 +93,15 @@
             <section class="movie-section">
                 <div class="container upcoming">
                     <h6>Upcoming</h6>
-                    <div class="row">
-                        @foreach ($upcomingMovies as $movie)
-                            <div class="movie-image-container col-lg-3">
-                                <div class="movie-image" style="width: 12em;">
-                                    <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
-                                        <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
-                                    </a>
-                                </div>
+                    @foreach ($upcomingMovies as $movie)
+                        <div class="movie-image-container col-lg-3">
+                            <div class="movie-image" style="width: 12em;">
+                                <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
+                                    <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
+                                </a>
                             </div>
-                        @endforeach
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </section>
         @else
@@ -117,3 +114,22 @@
 
 	</main>
 @endsection
+<script>
+    $(document).ready(function(){
+        $('.owl-carousel').owlCarousel({
+            dots: true,
+            arrows: true,
+            responsive:{
+                0:{
+                    items:1
+                },
+                600:{
+                    items:3
+                },
+                1000:{
+                    items:5
+                }
+            }
+        });
+    });
+</script>

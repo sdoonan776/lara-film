@@ -48,10 +48,10 @@ class MovieService extends BaseTmdbService
      * @throws NotFoundException
      * @throws ServerException
      */
-    public function getLatestMovies(): Collection
+    public function getRecentMovies(): Collection
     {
         try {
-            $response = $this->client->get('/3/movie/latest');
+            $response = $this->client->get('/3/movie/now_playing');
             return collect(json_decode($response->getBody()->getContents(), true)['results']);
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {

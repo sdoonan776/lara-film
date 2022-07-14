@@ -9,7 +9,6 @@ WORKDIR /srv/app
 COPY --chown=www-data:www-data . /srv/app
 
 COPY .docker/vhost.conf /etc/apache2/sites-available/000-default.conf
-COPY .docker/php/ini/conf.d/memory_limit.ini /usr/local/etc/php/conf.d/memory_limit.ini
 
 RUN apt-get update && apt-get install -y \
     git \

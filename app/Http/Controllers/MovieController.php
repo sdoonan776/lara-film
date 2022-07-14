@@ -74,7 +74,6 @@ class MovieController extends Controller
 
     /**
      * Returns the dates view for a specified movie id
-     *
      * @param string $movieId
      * @return View
      */

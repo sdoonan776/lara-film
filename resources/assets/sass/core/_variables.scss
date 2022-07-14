@@ -17,12 +17,11 @@ $primary-color: #1F2324;
 $secondary-color: #334549;
 $border-color: #a7a594;
 $btn-color: #b8ac42;
+$text-color: lighten($black, 10%);
 
 $white: #fff;
 $black: #000;
 $yellow: #FFCB47;
-
-$text-color: lighten($black, 10%);
 
 $btn-hover-color: lighten(#1F2324, 20%);
 

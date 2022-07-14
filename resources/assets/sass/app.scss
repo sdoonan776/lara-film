@@ -1,0 +1,15 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "~delicious-hamburgers/scss/base";
+@import "~delicious-hamburgers/scss/animations/criss-cross";
+@import"~owl.carousel/dist/assets/owl.carousel.min.css";
+
+@import 'core/variables';
+@import 'core/normalize';
+@import 'core/mixins';
+@import 'core/style';
+
+@import 'components/header';
+@import 'components/footer';
+@import 'components/sidebar';
+@import 'components/search';

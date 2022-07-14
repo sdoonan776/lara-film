@@ -1,0 +1,21 @@
+body {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	grid-template-columns: 100%;
+}
+
+.main-header {
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+}
+
+.content-wrap {
+	grid-column: 1 / 2;
+	grid-row: 2 / 5;
+}
+
+.main-footer {
+	grid-column: 1 / 2;
+	grid-row: 6 / 6;
+	vertical-align: middle;
+}
