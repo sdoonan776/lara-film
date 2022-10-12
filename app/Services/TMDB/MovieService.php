@@ -11,6 +11,13 @@ use Illuminate\Support\Collection;
 
 class MovieService extends BaseTmdbService
 {
+
+    public function getNowPlaying()
+    {
+        
+    }
+    
+    
     /**
      * Returns an array of top rated movies
      *
