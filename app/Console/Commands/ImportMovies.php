@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Exceptions\ApiException;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\ServerException;
+use App\Mappers\MovieMapper;
 use App\Services\TMDB\MovieService;
 use Illuminate\Console\Command;
 
@@ -12,11 +13,16 @@ class ImportMovies extends Command
 {
 
     private MovieService $movieService;
+    private MovieMapper $movieMapper;
 
-    public function __construct(MovieService $movieService)
+    public function __construct(
+        MovieService $movieService,
+        MovieMapper $movieMapper
+    )
     {
         parent::__construct();
         $this->movieService = $movieService;
+        $this->movieMapper = $movieMapper;
     }
 
     /**
@@ -40,6 +46,12 @@ class ImportMovies extends Command
      */
     public function handle()
     {
-        dd($this->movieService->getRecentMovies());
+        // TODO put this in a job to go through all of the pages
+        $movies = $this->movieService->getRecentMovies()['results'];
+
+        foreach ($movies as $movie) {
+            dd($movie);
+            $this->movieService->getRecentMovies();
+        }
     }
 }

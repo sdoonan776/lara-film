@@ -24,7 +24,7 @@ class GenreService extends BaseTmdbService
     {
         try {
             $response = $this->client->get('/3/genre/movie/list');
-            return collect(json_decode($response->getBody()->getContents(), true));
+            return collect(json_decode($response->getBody()->getContents(), true)['genres']);
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
                 case 404:

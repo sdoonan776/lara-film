@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('adult');
             $table->string('backdrop_path')->nullable();
+            $table->string('genre_ids');
             $table->string('belongs_to_collection')->nullable();
             $table->integer('budget');
             $table->string('homepage')->nullable();

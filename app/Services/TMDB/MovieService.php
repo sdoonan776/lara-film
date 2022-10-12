@@ -5,6 +5,7 @@ namespace App\Services\TMDB;
 use App\Exceptions\ApiException;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\ServerException;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
@@ -44,16 +45,18 @@ class MovieService extends BaseTmdbService
     /**
      * Returns an array of recently released movies
      *
+     * @param string $page
      * @return Collection
      * @throws ApiException
      * @throws NotFoundException
      * @throws ServerException
+     * @throws GuzzleException
      */
-    public function getRecentMovies(): Collection
+    public function getRecentMovies(string $page = ''): Collection
     {
         try {
-            $response = $this->client->get('/3/movie/now_playing');
-            return collect(json_decode($response->getBody()->getContents(), true)['results']);
+            $response = $this->client->get('/3/movie/now_playing?page=' . $page);
+            return collect(json_decode($response->getBody()->getContents(), true));
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
                 case 404:
