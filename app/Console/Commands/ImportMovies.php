@@ -10,15 +10,14 @@ use Illuminate\Console\Command;
 
 class ImportMovies extends Command
 {
-//    private MovieService $movieService;
-//
-//    /**
-//     * @param MovieService $movieService
-//     */
-//    public function __construct(MovieService $movieService)
-//    {
-//        $this->movieService = $movieService;
-//    }
+
+    private MovieService $movieService;
+
+    public function __construct(MovieService $movieService)
+    {
+        parent::__construct();
+        $this->movieService = $movieService;
+    }
 
     /**
      * The name and signature of the console command.
@@ -41,6 +40,6 @@ class ImportMovies extends Command
      */
     public function handle()
     {
-        dd($this->movieService->getPopularMovies());
+        dd($this->movieService->getRecentMovies());
     }
 }
