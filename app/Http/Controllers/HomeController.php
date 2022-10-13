@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function __invoke()
     {
-        $recentMovies = $this->movieService->getRecentMovies();
+        $recentMovies = $this->movieService->getRecentMovies()['results'];
         $upcomingMovies = $this->movieService->getUpcomingMovies();
         $popularMovies = $this->movieService->getPopularMovies();
         $topRatedMovies = $this->movieService->getTopRatedMovies();

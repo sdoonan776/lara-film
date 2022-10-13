@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->boolean('adult');
             $table->string('backdrop_path')->nullable();
-            $table->string('genre_ids');
+            $table->string('genres');
             $table->string('belongs_to_collection')->nullable();
             $table->integer('budget');
             $table->string('homepage')->nullable();
@@ -28,9 +28,12 @@ return new class extends Migration
             $table->string('overview')->nullable();
             $table->integer('popularity');
             $table->string('poster_path');
+            $table->string('production_companies');
+            $table->string('production_countries');
             $table->string('release_date');
             $table->integer('revenue');
             $table->integer('runtime')->nullable();
+            $table->string('spoken_languages');
             $table->string('status');
             $table->string('tagline')->nullable();
             $table->string('title');
