@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Exceptions\ApiException;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\ServerException;
+use App\Jobs\MovieFeed;
 use App\Jobs\MovieMapper;
 use App\Services\TMDB\MovieService;
 use GuzzleHttp\Exception\GuzzleException;
@@ -40,17 +41,10 @@ class ImportMovies extends Command
     /**
      * Execute the console command.
      *
-     * @return JsonResponse
+     * @return void
      */
-    public function handle()
+    public function handle(): void
     {
-        for ($i = 1; $i < 10; $i++) {
-            $movies = collect($this->movieService->getRecentMovies($i)['results']);
-            foreach ($movies as $movie) {
-                $movie = $this->movieService->getMovie($movie['id']);
-                MovieMapper::dispatch($movie);
-                print_r($movie['title'] . 'has been imported');
-            }
-        }
+        dispatch(new MovieFeed())->onQueue('default');
     }
 }

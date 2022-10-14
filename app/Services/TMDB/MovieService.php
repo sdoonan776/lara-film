@@ -16,17 +16,19 @@ class MovieService extends BaseTmdbService
     /**
      * Returns an array of top rated movies
      *
+     * @param string $page
      * @return Collection
-     * @throws NotFoundException
      * @throws ApiException
+     * @throws GuzzleException
+     * @throws NotFoundException
      * @throws ServerException
      */
 
-    public function getTopRatedMovies(): Collection
+    public function getTopRatedMovies(string $page = ''): Collection
     {
         try {
-            $response = $this->client->get('/3/movie/top_rated');
-            return collect(json_decode($response->getBody()->getContents(), true)['results']);
+            $response = $this->client->get('/3/movie/top_rated?page=' . $page);
+            return collect(json_decode($response->getBody()->getContents(), true));
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
                 case 404:
@@ -59,32 +61,7 @@ class MovieService extends BaseTmdbService
             return collect(json_decode($response->getBody()->getContents(), true));
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
-                case 404:
-                    throw new NotFoundException($exception->getMessage());
-                    break;
-                case 500:
-                    throw new ServerException($exception->getMessage());
-                    break;
-                default:
-                    throw new ApiException($exception->getMessage());
-                    break;
-            }
-        }
-    }
-
-    /**
-     * Returns an array of popular movies (updates daily)
-     *
-     * @return Collection
-     */
-    public function getPopularMovies(): Collection
-    {
-        try {
-            $response = $this->client->get( '/3/movie/popular');
-            return collect(json_decode($response->getBody()->getContents(), true)['results']);
-        } catch (RequestException $exception) {
-            switch ($exception->getResponse()->getStatusCode()) {
-                case 404:
+            case 404:
                     throw new NotFoundException($exception->getMessage());
                     break;
                 case 500:
@@ -100,16 +77,18 @@ class MovieService extends BaseTmdbService
     /**
      * Returns an array of upcoming movies (updates daily)
      *
+     * @param string $page
      * @return Collection
+     * @throws ApiException
+     * @throws GuzzleException
      * @throws NotFoundException
      * @throws ServerException
-     * @throws ApiException
      */
-    public function getUpcomingMovies(): Collection
+    public function getUpcomingMovies(string $page): Collection
     {
         try {
-            $response = $this->client->get('/3/movie/upcoming');
-            return collect(json_decode($response->getBody()->getContents(), true)['results']);
+            $response = $this->client->get('/3/movie/upcoming?page=' . $page);
+            return collect(json_decode($response->getBody()->getContents(), true));
         } catch (RequestException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
                 case 404:

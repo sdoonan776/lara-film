@@ -14,14 +14,6 @@ use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    protected ConfigService $configService;
-
-    public function __construct(
-        ConfigService $configService
-    )
-    {
-        $this->configService = $configService;
-    }
 
     /**
      * Returns main home page
@@ -34,20 +26,21 @@ class HomeController extends Controller
     public function __invoke(): View
     {
         $recentMovies = Movie::all();
+        $configs = json_decode(file_get_contents(base_path() . '/app/Utils/configs.json'), true);
 //        $recentMovies = $this->movieService->getRecentMovies()['results'];
 //        $upcomingMovies = $this->movieService->getUpcomingMovies();
 //        $popularMovies = $this->movieService->getPopularMovies();
 //        $topRatedMovies = $this->movieService->getTopRatedMovies();
-        $imageConfig = $this->configService->getConfiguration();
 
         return view('pages.home', [
             'recentMovies' => $recentMovies,
 //            'popularMovies' => $popularMovies,
 //            'upcomingMovies' => $upcomingMovies,
 //            'topRatedMovies' => $topRatedMovies,
-            'imageUrl' => $imageConfig['images']['base_url'],
-            'posterImageSize' => $imageConfig['images']['poster_sizes'][2],
-            'backdropImageSize' => $imageConfig['images']['backdrop_sizes'][3]
+            'configs' => $configs['images']
+//            'imageUrl' => $this->configs['images']['base_url'],
+//            'posterImageSize' => $this->configs['images']['poster_sizes'][2],
+//            'backdropImageSize' => $this->configs['images']['backdrop_sizes'][3]
         ]);
     }
 }

@@ -17,11 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('base_url');
             $table->string('secure_base_url');
-            $table->string('backdrop_sizes');
-            $table->string('logo_sizes');
-            $table->string('poster_sizes');
-            $table->string('profile_sizes');
-            $table->string('still_sizes');
+            $table->json('backdrop_sizes');
+            $table->json('logo_sizes');
+            $table->json('poster_sizes');
+            $table->json('profile_sizes');
+            $table->json('still_sizes');
             $table->timestamps();
         });
     }

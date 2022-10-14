@@ -49,7 +49,7 @@
                         <div class="movie-image-container col-lg">
                             <div class="movie-image" style="width: 12em;">
                                 <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
-                                    <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
+                                    <img src="{{ $configs['base_url'] }}/{{ $configs['poster_sizes'][2] }}{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}">
                                 </a>
                             </div>
                         </div>
