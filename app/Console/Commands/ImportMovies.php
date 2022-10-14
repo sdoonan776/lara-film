@@ -7,6 +7,7 @@ use App\Exceptions\NotFoundException;
 use App\Exceptions\ServerException;
 use App\Jobs\MovieMapper;
 use App\Services\TMDB\MovieService;
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\Command;
 
 class ImportMovies extends Command
@@ -43,13 +44,13 @@ class ImportMovies extends Command
      */
     public function handle()
     {
-        // TODO put this in a job to go through all of the pages
-        $movies = $this->movieService->getRecentMovies()['results'];
-
-        foreach ($movies as $movie) {
-            $movie = $this->movieService->getMovie($movie['id']);
-            dd($movie);
-            MovieMapper::dispatch($movies);
+        for ($i = 1; $i < 10; $i++) {
+            $movies = collect($this->movieService->getRecentMovies($i)['results']);
+            foreach ($movies as $movie) {
+                $movie = $this->movieService->getMovie($movie['id']);
+                MovieMapper::dispatch($movie);
+                print_r($movie['title'] . 'has been imported');
+            }
         }
     }
 }

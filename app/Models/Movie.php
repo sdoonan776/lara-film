@@ -12,7 +12,7 @@ class Movie extends Model
     protected $fillable = [
         'adult',
         'backdrop_path',
-        'genre_ids',
+        'genres',
         'belongs_to_collection',
         'budget',
         'homepage',
