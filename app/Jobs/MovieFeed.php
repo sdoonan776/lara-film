@@ -14,14 +14,9 @@ class MovieFeed implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    private MovieService $movieService;
+    protected $movieService;
 
-    /**
-     * Create a new job instance.
-     *
-     * @return void
-     */
-    public function __construct(MovieService $movieService): void
+    public function __construct(MovieService $movieService)
     {
         $this->movieService = $movieService;
     }
@@ -31,25 +26,21 @@ class MovieFeed implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
         for ($i = 1; $i < 10; $i++) {
-            $movies = collect($this->movieService->getRecentMovies($i)['results']);
-            foreach ($movies as $movie) {
+            $recentMovies = collect($this->movieService->getRecentMovies($i)['results']);
+            $topRatedMovies = collect($this->movieService->getTopRatedMovies($i)['results']);
+            $upcomingMovies = collect($this->movieService->getUpcomingMovies($i)['results']);
+            foreach ($recentMovies as $movie) {
                 $movie = $this->movieService->getMovie($movie['id']);
                 MovieMapper::dispatch($movie);
             }
-        }
-        for ($i = 1; $i < 10; $i++) {
-            $movies = collect($this->movieService->getTopRatedMovies($i)['results']);
-            foreach ($movies as $movie) {
+            foreach ($topRatedMovies as $movie) {
                 $movie = $this->movieService->getMovie($movie['id']);
                 MovieMapper::dispatch($movie);
             }
-        }
-        for ($i = 1; $i < 10; $i++) {
-            $movies = collect($this->movieService->getUpcomingMovies($i)['results']);
-            foreach ($movies as $movie) {
+            foreach ($upcomingMovies as $movie) {
                 $movie = $this->movieService->getMovie($movie['id']);
                 MovieMapper::dispatch($movie);
             }

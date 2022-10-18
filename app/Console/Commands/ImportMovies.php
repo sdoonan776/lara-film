@@ -7,6 +7,7 @@ use App\Exceptions\NotFoundException;
 use App\Exceptions\ServerException;
 use App\Jobs\MovieFeed;
 use App\Jobs\MovieMapper;
+use App\Jobs\TestJob;
 use App\Services\TMDB\MovieService;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Console\Command;
@@ -36,7 +37,7 @@ class ImportMovies extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Import movies from TMDB API into the database';
 
     /**
      * Execute the console command.
@@ -45,6 +46,7 @@ class ImportMovies extends Command
      */
     public function handle(): void
     {
-        dispatch(new MovieFeed())->onQueue('default');
+//        dispatch(new TestJob())->onQueue('default');
+        dispatch(new MovieFeed($this->movieService))->onQueue('default');
     }
 }
