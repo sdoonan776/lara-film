@@ -46,7 +46,11 @@ class ImportMovies extends Command
      */
     public function handle(): void
     {
-//        dispatch(new TestJob())->onQueue('default');
-        dispatch(new MovieFeed($this->movieService))->onQueue('default');
+        try {
+            dispatch(new MovieFeed)->onQueue('default');
+        } catch (\Exception $e) {
+            echo "Something went wrong";
+        }
+        echo "Job has successfully been added to the queue";
     }
 }

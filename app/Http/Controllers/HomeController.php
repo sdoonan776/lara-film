@@ -19,28 +19,17 @@ class HomeController extends Controller
      * Returns main home page
      *
      * @return View
-     * @throws ApiException
-     * @throws NotFoundException
-     * @throws ServerException
      */
     public function __invoke(): View
     {
-        $recentMovies = Movie::all();
+        $movies = Movie::all();
         $configs = json_decode(file_get_contents(base_path() . '/app/Utils/configs.json'), true);
-//        $recentMovies = $this->movieService->getRecentMovies()['results'];
-//        $upcomingMovies = $this->movieService->getUpcomingMovies();
-//        $popularMovies = $this->movieService->getPopularMovies();
-//        $topRatedMovies = $this->movieService->getTopRatedMovies();
 
         return view('pages.home', [
-            'recentMovies' => $recentMovies,
-//            'popularMovies' => $popularMovies,
-//            'upcomingMovies' => $upcomingMovies,
-//            'topRatedMovies' => $topRatedMovies,
+            'recentMovies' => $movies->sortBy('created_at')->splice(0, 10),
+            'upcomingMovies' => $movies->sortBy,
+            'topRatedMovies' => $movies,
             'configs' => $configs['images']
-//            'imageUrl' => $this->configs['images']['base_url'],
-//            'posterImageSize' => $this->configs['images']['poster_sizes'][2],
-//            'backdropImageSize' => $this->configs['images']['backdrop_sizes'][3]
         ]);
     }
 }

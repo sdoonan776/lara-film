@@ -2,13 +2,14 @@
 
 namespace App\Services\TMDB;
 
-use App\Exceptions\ApiException;
-use App\Exceptions\NotFoundException;
-use App\Exceptions\ServerException;
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Exception\RequestException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Collection;
+use App\Exceptions\Api\ApiException;
+use App\Services\TMDB\BaseTmdbService;
+use App\Exceptions\Api\ServerException;
+use App\Exceptions\Api\NotFoundException;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Exception\RequestException;
 
 class MovieService extends BaseTmdbService
 {

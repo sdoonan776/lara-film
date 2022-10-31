@@ -12,12 +12,12 @@
                         <div class="carousel-inner">
                             @foreach($recentMovies as $movie)
                                 <div class="carousel-item">
-                                    <img class="d-block banner-image" src="{{ $imageUrl }}{{ $backdropImageSize }}{{ $movie['backdrop_path'] }}" alt="Movie Slide">
+                                    <img class="d-block banner-image" src="{{ $configs['base_url'] }}{{ $configs['backdrop_sizes'][3] }}{{ $movie['backdrop_path'] }}" alt="Movie Slide">
                                     <div class="slide-overlay row justify-content-center align-items-center">
                                         <div class="movie-image-container col-lg-3">
                                             <div class="movie-image" style="width: 12em;">
                                                 <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
-                                                    <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
+                                                    <img src="{{ $configs['base_url'] }}/{{ $configs['poster_sizes'][2] }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
                                                 </a>
                                             </div>
                                         </div>
@@ -64,72 +64,53 @@
             </div>
         @endif
 
-{{--        @if (isset($topRatedMovies))--}}
-{{--            <section class="movie-section">--}}
-{{--                <div class="container top-rated">--}}
-{{--                    <h6>Top Rated</h6>--}}
-{{--                    <div class="row">--}}
-{{--                        @foreach ($topRatedMovies as $movie)--}}
-{{--                            <div class="movie-image-container col-lg-3">--}}
-{{--                                <div class="movie-image" style="width: 12em;">--}}
-{{--                                    <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">--}}
-{{--                                        <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">--}}
-{{--                                    </a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endforeach--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </section>--}}
-{{--        @else--}}
-{{--            <div class="container">--}}
-{{--                @foreach(range(1, 5) as $movie)--}}
-{{--                    <div class="no-movie-image-container"></div>--}}
-{{--                @endforeach--}}
-{{--            </div>--}}
-{{--        @endif--}}
+       @if (isset($topRatedMovies))
+           <section class="movie-section">
+               <div class="container top-rated">
+                   <h6>Top Rated</h6>
+                   <div class="row">
+                       @foreach ($topRatedMovies as $movie)
+                           <div class="movie-image-container col-lg-3">
+                               <div class="movie-image" style="width: 12em;">
+                                   <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
+                                       <img src="{{ $configs['base_url'] }}/{{ $configs['poster_sizes'][2] }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
+                                   </a>
+                               </div>
+                           </div>
+                       @endforeach
+                   </div>
+               </div>
+           </section>
+       @else
+           <div class="container">
+               @foreach(range(1, 5) as $movie)
+                   <div class="no-movie-image-container"></div>
+               @endforeach
+           </div>
+       @endif
 
-{{--        @if (isset($upcomingMovies))--}}
-{{--            <section class="movie-section">--}}
-{{--                <div class="container upcoming">--}}
-{{--                    <h6>Upcoming</h6>--}}
-{{--                    @foreach ($upcomingMovies as $movie)--}}
-{{--                        <div class="movie-image-container col-lg-3">--}}
-{{--                            <div class="movie-image" style="width: 12em;">--}}
-{{--                                <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">--}}
-{{--                                    <img src="{{ $imageUrl }}/{{ $posterImageSize }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--            </section>--}}
-{{--        @else--}}
-{{--            <div class="container">--}}
-{{--                @foreach(range(1, 5) as $movie)--}}
-{{--                    <div class="no-movie-image-container"></div>--}}
-{{--                @endforeach--}}
-{{--            </div>--}}
-{{--        @endif--}}
+       @if (isset($upcomingMovies))
+           <section class="movie-section">
+               <div class="container upcoming">
+                   <h6>Upcoming</h6>
+                   @foreach ($upcomingMovies as $movie)
+                       <div class="movie-image-container col-lg-3">
+                           <div class="movie-image" style="width: 12em;">
+                               <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
+                                   <img src="{{ $configs['base_url'] }}/{{ $configs['poster_sizes'][2] }}{{ $movie['poster_path'] }}" alt="{{ $movie['original_title'] }}">
+                               </a>
+                           </div>
+                       </div>
+                   @endforeach
+               </div>
+           </section>
+       @else
+           <div class="container">
+               @foreach(range(1, 5) as $movie)
+                   <div class="no-movie-image-container"></div>
+               @endforeach
+           </div>
+       @endif
 
 	</main>
 @endsection
-<script>
-    $(document).ready(function(){
-        $('.owl-carousel').owlCarousel({
-            dots: true,
-            arrows: true,
-            responsive:{
-                0:{
-                    items:1
-                },
-                600:{
-                    items:3
-                },
-                1000:{
-                    items:5
-                }
-            }
-        });
-    });
-</script>

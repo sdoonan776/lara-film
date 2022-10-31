@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Exceptions;
+namespace App\Exceptions\Api;
 
-use App\Exceptions\TmdbException;
+use App\Exceptions\Api\TmdbException;
 
 class ServerException extends TmdbException
 {

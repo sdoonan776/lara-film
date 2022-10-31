@@ -14,35 +14,32 @@ class MovieFeed implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $movieService;
-
-    public function __construct(MovieService $movieService)
-    {
-        $this->movieService = $movieService;
-    }
-
     /**
      * Execute the job.
      *
      * @return void
      */
-    public function handle(): void
+    public function handle(MovieService $movieService): void
     {
         for ($i = 1; $i < 10; $i++) {
-            $recentMovies = collect($this->movieService->getRecentMovies($i)['results']);
-            $topRatedMovies = collect($this->movieService->getTopRatedMovies($i)['results']);
-            $upcomingMovies = collect($this->movieService->getUpcomingMovies($i)['results']);
+            $recentMovies = collect($movieService->getRecentMovies($i)['results']);
+            $topRatedMovies = collect($movieService->getTopRatedMovies($i)['results']);
+            $upcomingMovies = collect($movieService->getUpcomingMovies($i)['results']);
             foreach ($recentMovies as $movie) {
-                $movie = $this->movieService->getMovie($movie['id']);
+                $movie = $movieService->getMovie($movie['id']);
                 MovieMapper::dispatch($movie);
+                echo $movie['title'] . "has successfully been imported" . "<br/><br/>";
             }
             foreach ($topRatedMovies as $movie) {
-                $movie = $this->movieService->getMovie($movie['id']);
+                $movie = $movieService->getMovie($movie['id']);
                 MovieMapper::dispatch($movie);
+                echo $movie['title'] . "has successfully been imported" . "<br/><br/>";
             }
             foreach ($upcomingMovies as $movie) {
-                $movie = $this->movieService->getMovie($movie['id']);
+                $movie = $movieService->getMovie($movie['id']);
                 MovieMapper::dispatch($movie);
+                echo $movie['title'] . "has successfully been imported" . "<br/><br/>";
+            }
             }
         }
     }
