@@ -28,19 +28,19 @@ class MovieFeed implements ShouldQueue
             foreach ($recentMovies as $movie) {
                 $movie = $movieService->getMovie($movie['id']);
                 MovieMapper::dispatch($movie);
-                echo $movie['title'] . "has successfully been imported" . "<br/><br/>";
+                echo $movie['title'] . "has successfully been imported" . "<br>";
             }
             foreach ($topRatedMovies as $movie) {
                 $movie = $movieService->getMovie($movie['id']);
                 MovieMapper::dispatch($movie);
-                echo $movie['title'] . "has successfully been imported" . "<br/><br/>";
+                echo $movie['title'] . "has successfully been imported" . "<br>";
             }
             foreach ($upcomingMovies as $movie) {
                 $movie = $movieService->getMovie($movie['id']);
                 MovieMapper::dispatch($movie);
-                echo $movie['title'] . "has successfully been imported" . "<br/><br/>";
+                echo $movie['title'] . "has successfully been imported" . "<br>";
             }
-            }
+            echo "All movies have been imported";
         }
     }
 }

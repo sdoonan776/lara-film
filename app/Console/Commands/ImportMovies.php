@@ -15,16 +15,6 @@ use Illuminate\Console\Command;
 class ImportMovies extends Command
 {
 
-    private MovieService $movieService;
-
-    public function __construct(
-        MovieService $movieService,
-    )
-    {
-        parent::__construct();
-        $this->movieService = $movieService;
-    }
-
     /**
      * The name and signature of the console command.
      *

@@ -27,7 +27,7 @@ class HomeController extends Controller
 
         return view('pages.home', [
             'recentMovies' => $movies->sortBy('created_at')->splice(0, 10),
-            'upcomingMovies' => $movies->sortBy,
+            // 'upcomingMovies' => $movies->sortBy,
             'topRatedMovies' => $movies,
             'configs' => $configs['images']
         ]);
