@@ -1,0 +1,25 @@
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Core
+@import 'core/variables';
+@import 'core/normalize';
+@import 'core/mixins';
+@import 'core/styles';
+
+// Components
+
+@import 'components/header';
+@import 'components/footer';
+@import 'components/search';
+@import 'components/sidebar';
+
+// Grids
+
+@import 'grids/main';
+
+
+

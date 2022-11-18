@@ -41,7 +41,10 @@
                 </div>
             </div>
         </div>
-        @if (isset($recentMovies))
+        <div id="app">
+        </div>
+        <movie-carousel/>
+        {{-- @if (isset($recentMovies))
             <section class="movie-section">
                 <div class="container now-playing">
                     <h6>Now Playing</h6>
@@ -110,6 +113,6 @@
                    <div class="no-movie-image-container"></div>
                @endforeach
            </div>
-       @endif
+       @endif --}}
 	</main>
 @endsection
