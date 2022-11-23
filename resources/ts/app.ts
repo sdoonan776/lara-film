@@ -1,10 +1,9 @@
-import createApp from 'vue';
-import MovieCarousel from './components/MovieCarousel';
+import "./bootstrap";
+import Vue from 'vue';
+import MovieCarousel from './components/MovieCarousel.vue';
 
-createApp(MovieCarousel).mount('#app'); 
+Vue.component('movie-carousel', MovieCarousel);
 
-// Vue.component('movie-carousel', require('./components/MovieCarousel.vue'));
-
-// new Vue({
-//     el: '#app',
-// });
+new Vue({
+    el: "#movieCarousel",
+});

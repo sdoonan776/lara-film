@@ -41,22 +41,13 @@
                 </div>
             </div>
         </div>
-        <div id="app">
-        </div>
-        <movie-carousel/>
-        {{-- @if (isset($recentMovies))
-            <section class="movie-section">
-                <div class="container now-playing">
-                    <h6>Now Playing</h6>
-                    @foreach ($recentMovies as $movie)
-                        <div class="movie-image-container col-lg">
-                            <div class="movie-image" style="width: 12em;">
-                                <a href="{{ route('movie.show', ['id' => $movie['id']]) }}">
-                                    <img src="{{ $configs['base_url'] }}/{{ $configs['poster_sizes'][2] }}{{ $movie['poster_path'] }}" alt="{{ $movie['title'] }}">
-                                </a>
-                            </div>
-                        </div>
-                    @endforeach
+        @if (isset($recentMovies))
+        <section class="movie-section">
+            <div class="container now-playing">
+                <h6>Now Playing</h6>
+                    {{-- <section class="movie-section" id="movieCarousel">
+                        <movie-carousel :movies="$recentMovies"/>
+                    </section> --}}
                 </div>
             </section>
         @else
@@ -67,7 +58,7 @@
             </div>
         @endif
 
-       @if (isset($topRatedMovies))
+       {{-- @if (isset($topRatedMovies))
            <section class="movie-section">
                <div class="container top-rated">
                    <h6>Top Rated</h6>
@@ -113,6 +104,6 @@
                    <div class="no-movie-image-container"></div>
                @endforeach
            </div>
-       @endif --}}
+       @endif  --}}
 	</main>
 @endsection

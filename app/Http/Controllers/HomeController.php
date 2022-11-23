@@ -16,7 +16,7 @@ class HomeController extends Controller
 {
 
     /**
-     * Returns main home page
+     * Fetches all movies and returns main home page
      *
      * @return View
      */
