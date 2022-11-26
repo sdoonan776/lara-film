@@ -45,9 +45,12 @@
         <section class="movie-section">
             <div class="container now-playing">
                 <h6>Now Playing</h6>
-                    {{-- <section class="movie-section" id="movieCarousel">
-                        <movie-carousel :movies="$recentMovies"/>
-                    </section> --}}
+                    <section class="movie-section" id="movieCarousel">
+                        <movie-carousel 
+                            :movies="{{ $recentMovies }}"
+                            :configs="{{ $configs }}"
+                        />
+                    </section>
                 </div>
             </section>
         @else

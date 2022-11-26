@@ -24,11 +24,12 @@ class HomeController extends Controller
     {
         $movies = Movie::all();
         $configs = json_decode(file_get_contents(base_path() . '/app/Utils/configs.json'), true);
+        dd($configs['images']);
 
         return view('pages.home', [
             'recentMovies' => $movies->sortBy('created_at')->splice(0, 10),
-            // 'upcomingMovies' => $movies->sortBy,
-            'topRatedMovies' => $movies,
+            'upcomingMovies' => $movies,
+            'topRatedMovies' => $movies->sortBy('rating')->splice(0, 10),
             'configs' => $configs['images']
         ]);
     }
